@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tree carbon calculator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="calculator.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="calculator.js"></script>
+
+</head>
+<body style="background: #f2f2f4;">
+<section class="container default section-border-top">
+    <div class="container-fluid mt-3 section">
+        <h1>Calculator</h1>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 text-black p-3 calc"
+                 style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+                <h4>Tree params</h4>
+                <div>
+                    <label for="height">Height, feet</label><br>
+                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                        <input type="number"
+                               min="5"
+                               max="116"
+                               step="0.01"
+                               id="height"
+                               class="form-control"
+                               value="5"
+                               oninput="onInputHeight(value)"
+                        >
+                        <div style="padding-left: 1rem; flex: 1">
+                            <input type="range"
+                                   min="5"
+                                   max="116"
+                                   step="0.01"
+                                   id="heightRange"
+                                   name="heightRange"
+                                   class="custom-range"
+                                   oninput="onInputHeightRange(value)">
+                            <div class="range-marks d-flex">
+                                <div class="range-mark-min">5</div>
+                                <div class="range-mark-max flex-grow text-right w-100">116</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="diameter">Diameter, feet</label><br>
+                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                        <input type="number"
+                               min="0.25"
+                               max="4.84"
+                               step="0.01"
+                               id="diameter"
+                               class="form-control"
+                               value="0.25"
+                               oninput="onInputDiameter(value)"
+                        >
+                        <div style="padding-left: 1rem; flex: 1">
+                            <input type="range"
+                                   min="0.25"
+                                   max="4.84"
+                                   step="0.01"
+                                   id="diameterRange"
+                                   name="diameterRange"
+                                   class="custom-range"
+                                   oninput="onInputDiameterRange(value)">
+                            <div class="range-marks d-flex">
+                                <div class="range-mark-min">0.25</div>
+                                <div class="range-mark-max flex-grow text-right w-100">4.84</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="age">Age, years</label><br>
+                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                        <input type="number"
+                               min="2"
+                               max="500"
+                               id="age"
+                               class="form-control"
+                               value="2"
+                               oninput="onInputAge(value)"
+                        >
+                        <div style="padding-left: 1rem; flex: 1">
+                            <input type="range"
+                                   min="2"
+                                   max="500"
+                                   id="diameterAge"
+                                   name="diameterAge"
+                                   class="custom-range"
+                                   oninput="onInputAgeRange(value)">
+                            <div class="range-marks d-flex">
+                                <div class="range-mark-min">2</div>
+                                <div class="range-mark-max flex-grow text-right w-100">500</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 p-3 calc"
+                 style="border-top-left-radius: 0px;border-bottom-left-radius: 0px; ">
+                <h4>Tree results:</h4>
+                <div>Green weight: <span id="greenWeight"></span></div>
+                <div>Dry weight: <span id="dryWeight"></span></div>
+                <div>Weight of carbon: <span id="weightOfCarbon"></span></div>
+                <div>Weight of carbon dioxide sequestered: <span id="weightOfCarbonDioxide"></span></div>
+                <div>Weight of CO2 sequestered per year: <span id="weightOfCO2"></span></div>
+            </div>
+        </div>
+        <div class="row" style="justify-content: space-evenly; padding-top: 30px">
+            <img src="utmn_rus.png" style="width: 17%">
+            <img src="carbon-logo.svg" style="width: 20%">
+            <img src="sibur.png" style="width: 20%">
+            <img src="tyumen_oblast.svg" style="width: 20%">
+        </div>
+    </div>
+</section>
+<section class="container default section-border-top">
+
+</section>
+</body>
+</html>
