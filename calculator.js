@@ -1,8 +1,6 @@
-let height = 500;
-let diameter = 500;
-let age = 500;
-
-
+let height = Number(5);
+let diameter = Number(0.25);
+let age = Number(2);
 
 function onInputHeight(val) {
     height = Number(val);
@@ -47,16 +45,23 @@ function calc() {
     calcWeightOfCarbonDioxide();
     calcWeightOfCO2();
 }
+
 //W
+// For trees with D &lt; 11: W = 0.25D^2 *H
+// For trees with D &gt;= 11: W = 0.15D^2 *H
 let greenWeight;
-    function calcGreenWeight() {
+
+function calcGreenWeight() {
     let multiplier = Number(diameter) < 11 ? 0.25 : 0.15;
     let res = multiplier * Number(height) * Math.pow(Number(diameter), 2);
     greenWeight = res;
     document.getElementById('greenWeight').innerHTML = round(res);
 }
+
 //DW
+// DW=W*72,5%
 let dryWeight;
+
 function calcDryWeight() {
     let res = greenWeight * 0.725;
     dryWeight = res;
@@ -64,7 +69,9 @@ function calcDryWeight() {
 }
 
 //WC
+//WC = DW * 50%
 let weightOfCarbon;
+
 function calcWeightOfCarbon() {
     let res = dryWeight * 0.5;
     weightOfCarbon = res;
@@ -72,7 +79,9 @@ function calcWeightOfCarbon() {
 }
 
 //WCO2
+//WCO2=WC * 3.6663^6
 let weightOfCarbonDioxide;
+
 function calcWeightOfCarbonDioxide() {
 
     let res = weightOfCarbon * Math.pow(3.6663, 6);
@@ -81,6 +90,7 @@ function calcWeightOfCarbonDioxide() {
 }
 
 //let weightOfCO2;
+// WCO2 / age of the tree
 function calcWeightOfCO2() {
     let res = weightOfCarbonDioxide / age;
     weightOfCO2 = res;
@@ -90,12 +100,12 @@ function calcWeightOfCO2() {
 function round(x) {
     if (x > 10) {
         return Math.round(x);
-    } else if( 10 > x > 1) {
+    } else if (10 > x > 1) {
         return x.toFixed(1);
     } else {
         let res = '';
-        for(let c of x.toString()) {
-            if(c != '.' && c !== '.' && c != ',' && c !== ',' && c != '0') {
+        for (let c of x.toString()) {
+            if (c != '.' && c !== '.' && c != ',' && c !== ',' && c != '0') {
                 res += c;
                 return Number(res);
             } else {
@@ -105,3 +115,11 @@ function round(x) {
         return Number(x);
     }
 }
+
+function openUrl(url) {
+    window.open(url);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    calc();
+});
