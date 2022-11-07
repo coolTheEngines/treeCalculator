@@ -13,121 +13,136 @@
 <body style="background: #f2f2f4;">
 <section class="container default section-border-top">
     <div class="container-fluid mt-3 section">
-        <h1>Calculator</h1>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 text-black p-3 calc"
-                 style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
-                <h4>Tree params</h4>
-                <div>
-                    <label for="height">Height, feet</label><br>
-                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                        <input type="number"
-                               min="5"
-                               max="116"
-                               step="0.01"
-                               id="height"
-                               class="form-control"
-                               value="5"
-                               oninput="onInputHeight(value)"
-                        >
-                        <div style="padding-left: 1rem; flex: 1">
-                            <input type="range"
-                                   min="5"
-                                   max="116"
-                                   step="0.01"
-                                   id="heightRange"
-                                   name="heightRange"
-                                   class="custom-range"
-                                   oninput="onInputHeightRange(value)">
-                            <div class="range-marks d-flex">
-                                <div class="range-mark-min">5</div>
-                                <div class="range-mark-max flex-grow text-right w-100">116</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <label for="diameter">Diameter, inches</label><br>
-                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                        <input type="number"
-                               min="0.25"
-                               max="4.84"
-                               step="0.01"
-                               id="diameter"
-                               class="form-control"
-                               value="0.25"
-                               oninput="onInputDiameter(value)"
-                        >
-                        <div style="padding-left: 1rem; flex: 1">
-                            <input type="range"
-                                   min="0.25"
-                                   max="4.84"
-                                   step="0.01"
-                                   id="diameterRange"
-                                   name="diameterRange"
-                                   class="custom-range"
-                                   oninput="onInputDiameterRange(value)">
-                            <div class="range-marks d-flex">
-                                <div class="range-mark-min">0.25</div>
-                                <div class="range-mark-max flex-grow text-right w-100">4.84</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <label for="age">Age, years</label><br>
-                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                        <input type="number"
-                               min="2"
-                               max="500"
-                               id="age"
-                               class="form-control"
-                               value="2"
-                               oninput="onInputAge(value)"
-                        >
-                        <div style="padding-left: 1rem; flex: 1">
-                            <input type="range"
-                                   min="2"
-                                   max="500"
-                                   id="diameterAge"
-                                   name="diameterAge"
-                                   class="custom-range"
-                                   oninput="onInputAgeRange(value)">
-                            <div class="range-marks d-flex">
-                                <div class="range-mark-min">2</div>
-                                <div class="range-mark-max flex-grow text-right w-100">500</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="row" style="padding-top: 30px">
+            <div style="width: 50%" id="header">
+<!--                <h1>Calculator</h1>-->
             </div>
-            <div class="col-xs-12 col-sm-6 p-3 calc"
-                 style="border-top-left-radius: 0px;border-bottom-left-radius: 0px; ">
-                <h4>Tree results:</h4>
-                <div>Green weight: <span id="greenWeight"></span>, pounds</div>
-                <div>Dry weight: <span id="dryWeight"></span>, pounds</div>
-                <div>Weight of carbon: <span id="weightOfCarbon"></span>, pounds</div>
-                <div>Weight of carbon dioxide sequestered: <span id="weightOfCarbonDioxide"></span>, pounds</div>
-                <div>Weight of CO2 sequestered per year: <span id="weightOfCO2"></span>, pounds</div>
+            <div style="float: right; width: 50%">
+                <div style="width: 65px; float: right">
+                    <button type="button" onclick="changeMetricSystem()">metric</button>
+                </div>
+                <div style="width: 65px; float: right">
+                    <button type="button" onclick="changeLanguage()">lang</button>
+                </div>
             </div>
         </div>
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 text-black p-3 calc"
+                 style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;" id="params">
+<!--                <h4>Tree params</h4>-->
+<!--                <div>-->
+<!--                    <label for="height">Height, <span>feet</span></label><br>-->
+<!--                    <div class="d-flex align-items-center mt-2 mt-md-0">-->
+<!--                        <input type="number"-->
+<!--                               min="5"-->
+<!--                               max="116"-->
+<!--                               step="0.01"-->
+<!--                               id="height"-->
+<!--                               class="form-control"-->
+<!--                               value="5"-->
+<!--                               oninput="onInputHeight(value)"-->
+<!--                        >-->
+<!--                        <div style="padding-left: 1rem; flex: 1">-->
+<!--                            <input type="range"-->
+<!--                                   min="5"-->
+<!--                                   max="116"-->
+<!--                                   step="0.01"-->
+<!--                                   id="heightRange"-->
+<!--                                   name="heightRange"-->
+<!--                                   class="custom-range"-->
+<!--                                   oninput="onInputHeightRange(value)">-->
+<!--                            <div class="range-marks d-flex">-->
+<!--                                <div class="range-mark-min">5</div>-->
+<!--                                <div class="range-mark-max flex-grow text-right w-100">116</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <label for="diameter">Diameter, inches</label><br>-->
+<!--                    <div class="d-flex align-items-center mt-2 mt-md-0">-->
+<!--                        <input type="number"-->
+<!--                               min="0.25"-->
+<!--                               max="4.84"-->
+<!--                               step="0.01"-->
+<!--                               id="diameter"-->
+<!--                               class="form-control"-->
+<!--                               value="0.25"-->
+<!--                               oninput="onInputDiameter(value)"-->
+<!--                        >-->
+<!--                        <div style="padding-left: 1rem; flex: 1">-->
+<!--                            <input type="range"-->
+<!--                                   min="0.25"-->
+<!--                                   max="4.84"-->
+<!--                                   step="0.01"-->
+<!--                                   id="diameterRange"-->
+<!--                                   name="diameterRange"-->
+<!--                                   class="custom-range"-->
+<!--                                   oninput="onInputDiameterRange(value)">-->
+<!--                            <div class="range-marks d-flex">-->
+<!--                                <div class="range-mark-min">0.25</div>-->
+<!--                                <div class="range-mark-max flex-grow text-right w-100">4.84</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <label for="age">Age, years</label><br>-->
+<!--                    <div class="d-flex align-items-center mt-2 mt-md-0">-->
+<!--                        <input type="number"-->
+<!--                               min="2"-->
+<!--                               max="500"-->
+<!--                               id="age"-->
+<!--                               class="form-control"-->
+<!--                               value="2"-->
+<!--                               oninput="onInputAge(value)"-->
+<!--                        >-->
+<!--                        <div style="padding-left: 1rem; flex: 1">-->
+<!--                            <input type="range"-->
+<!--                                   min="2"-->
+<!--                                   max="500"-->
+<!--                                   id="diameterAge"-->
+<!--                                   name="diameterAge"-->
+<!--                                   class="custom-range"-->
+<!--                                   oninput="onInputAgeRange(value)">-->
+<!--                            <div class="range-marks d-flex">-->
+<!--                                <div class="range-mark-min">2</div>-->
+<!--                                <div class="range-mark-max flex-grow text-right w-100">500</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+<!--            <div id="results">-->
+                <div class="col-xs-12 col-sm-6 p-3 calc"
+                     style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;" id="results">
+<!--                    <h4>Tree results:</h4>-->
+<!--                    <div>Green weight: <span id="greenWeight"></span>, pounds</div>-->
+<!--                    <div>Dry weight: <span id="dryWeight"></span>, pounds</div>-->
+<!--                    <div>Weight of carbon: <span id="weightOfCarbon"></span>, pounds</div>-->
+<!--                    <div>Weight of carbon dioxide sequestered: <span id="weightOfCarbonDioxide"></span>, pounds</div>-->
+<!--                    <div>Weight of CO2 sequestered per year: <span id="weightOfCO2"></span>, pounds</div>-->
+                </div>
+<!--            </div>-->
+        </div>
         <div class="row" style="justify-content: space-evenly; padding-top: 30px">
-                <img src="utmn_rus.png"
-                     style="width: 17%"
-                     class="pointer"
-                     onclick="openUrl('https://www.utmn.ru/')">
-                <img src="carbon-logo.svg"
-                     style="width: 20%"
-                     class="pointer"
-                     onclick="openUrl('https://carbon-polygons.ru/')">
-                <img src="sibur.png"
-                     style="width: 20%"
-                     class="pointer"
-                     onclick="openUrl('https://sibur.ru')">
-                <img src="tyumen_oblast.svg"
-                     style="width: 20%"
-                     class="pointer"
-                     onclick="openUrl('https://admtyumen.ru/')">
+            <img src="utmn_rus.png"
+                 style="width: 17%"
+                 class="pointer"
+                 onclick="openUrl('https://www.utmn.ru/')">
+            <img src="carbon-logo.svg"
+                 style="width: 20%"
+                 class="pointer"
+                 onclick="openUrl('https://carbon-polygons.ru/')">
+            <img src="sibur.png"
+                 style="width: 20%"
+                 class="pointer"
+                 onclick="openUrl('https://sibur.ru')">
+            <img src="tyumen_oblast.svg"
+                 style="width: 20%"
+                 class="pointer"
+                 onclick="openUrl('https://admtyumen.ru/')">
         </div>
     </div>
 </section>
