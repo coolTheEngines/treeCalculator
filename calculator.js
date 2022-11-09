@@ -9,6 +9,8 @@ const metricMultiplierEU = Number(0.453592);
 let height = Number(5);
 let diameter = Number(0.25);
 let age = Number(2);
+let treeCount = Number(1);
+
 let language = languageEN;
 let metric = metricUK;
 
@@ -48,13 +50,25 @@ function onInputAgeRange(val) {
     calc();
 }
 
+function onInputTreeCount(val) {
+    treeCount = Number(val);
+    document.getElementById('treeCountRange').value = val;
+    calc();
+}
+
+function onInputTreeCountRange(val) {
+    treeCount = Number(val);
+    document.getElementById('treeCount').value = val;
+    calc();
+}
+
 function calc() {
     calcGreenWeight();
     calcDryWeight();
     calcWeightOfCarbon();
     calcWeightOfCarbonDioxide();
     calcWeightOfCO2();
-    changeMetriсValues();
+    updateMetricValues();
 }
 
 //W
@@ -65,7 +79,7 @@ let greenWeightKg;
 
 function calcGreenWeight() {
     let multiplier = Number(diameter) < 11 ? 0.25 : 0.15;
-    let res = multiplier * Number(height) * Math.pow(Number(diameter), 2);
+    let res = multiplier * Number(height) * Math.pow(Number(diameter), 2) * treeCount;
     greenWeight = Number(res);
     greenWeightKg = Number(res * metricMultiplierEU);
 }
@@ -76,11 +90,9 @@ let dryWeight;
 let dryWeightKg;
 
 function calcDryWeight() {
-    let res = greenWeight * 0.725;
+    let res = greenWeight * 0.725 * treeCount;
     dryWeight = Number(res);
     dryWeightKg = Number(res * metricMultiplierEU);
-    console.log("1dryWeight " + dryWeight );
-    console.log("1dryWeightKg " + dryWeightKg );
 }
 
 //WC
@@ -89,7 +101,7 @@ let weightOfCarbon;
 let weightOfCarbonKg;
 
 function calcWeightOfCarbon() {
-    let res = dryWeight * 0.5;
+    let res = dryWeight * 0.5 * treeCount;
     weightOfCarbon = Number(res);
     weightOfCarbonKg = Number(res * metricMultiplierEU);
 }
@@ -100,8 +112,7 @@ let weightOfCarbonDioxide;
 let weightOfCarbonDioxideKg;
 
 function calcWeightOfCarbonDioxide() {
-
-    let res = weightOfCarbon * Math.pow(3.6663, 6);
+    let res = weightOfCarbon * Math.pow(3.6663, 6) * treeCount;
     weightOfCarbonDioxide = Number(res);
     weightOfCarbonDioxideKg = Number(res * metricMultiplierEU);
 }
@@ -110,7 +121,7 @@ let weightOfCO2;
 let weightOfCO2Kg;
 // WCO2 / age of the tree
 function calcWeightOfCO2() {
-    let res = weightOfCarbonDioxide / age;
+    let res = weightOfCarbonDioxide / age * treeCount;
     weightOfCO2 = Number(res);
     weightOfCO2Kg = Number(res * metricMultiplierEU);
 }
@@ -122,7 +133,6 @@ function round(x) {
         return x.toFixed(1);
     } else {
         let res = '';
-        console.log("x = " , x);
         for (let c of x.toString()) {
             if (c != '.' && c !== '.' && c != ',' && c !== ',' && c != '0') {
                 res += c;
@@ -156,38 +166,38 @@ function changeMetricSystem() {
         metric = metricUK;
     }
     changeMetricNaming();
-    changeMetriсValues();
+    updateMetricValues();
 }
 
 function changeMetricNaming() {
-    if (metric === metricUK && language === languageEN) {
+    if (metric === metricEU && language === languageEN) {
         document.getElementsByName('heightParam').forEach(el => el.innerHTML = "meters");
         document.getElementsByName('diameterParam').forEach(el => el.innerHTML = "meters");
         document.getElementsByName('weightResult').forEach(el => el.innerHTML = "kg");
-    } else if (metric === metricUK && language === languageRU) {
+    } else if (metric === metricEU && language === languageRU) {
         document.getElementsByName('heightParam').forEach(el => el.innerHTML = "метры");
         document.getElementsByName('diameterParam').forEach(el => el.innerHTML = "метры");
         document.getElementsByName('weightResult').forEach(el => el.innerHTML = "кг");
-    } else if (metric === metricEU && language === languageEN) {
+    } else if (metric === metricUK && language === languageEN) {
         document.getElementsByName('heightParam').forEach(el => el.innerHTML = "feet");
         document.getElementsByName('diameterParam').forEach(el => el.innerHTML = "inches");
         document.getElementsByName('weightResult').forEach(el => el.innerHTML = "pounds");
-    } else if (metric === metricEU && language === languageRU) {
+    } else if (metric === metricUK && language === languageRU) {
         document.getElementsByName('heightParam').forEach(el => el.innerHTML = "футы");
         document.getElementsByName('diameterParam').forEach(el => el.innerHTML = "дюймы");
         document.getElementsByName('weightResult').forEach(el => el.innerHTML = "фунтов");
     }
 }
 
-function changeMetriсValues() {
-    if (metric === metricUK) {
+function updateMetricValues() {
+    if (metric === metricEU) {
         document.getElementById('greenWeight').innerHTML = round(greenWeightKg);
         document.getElementById('dryWeight').innerHTML = round(dryWeightKg);
         document.getElementById('weightOfCarbon').innerHTML = round(weightOfCarbonKg);
         document.getElementById('weightOfCarbonDioxide').innerHTML = round(weightOfCarbonDioxideKg);
         document.getElementById('weightOfCO2').innerHTML = round(weightOfCO2Kg);
 
-    } else if (metric === metricEU) {
+    } else if (metric === metricUK) {
         document.getElementById('greenWeight').innerHTML = round(greenWeight);
         document.getElementById('dryWeight').innerHTML = round(dryWeight);
         document.getElementById('weightOfCarbon').innerHTML = round(weightOfCarbon);
@@ -224,16 +234,17 @@ function translate() {
                         <input type="number"
                                min="5"
                                max="116"
+                               value="5"
                                step="0.01"
                                id="height"
                                class="form-control"
-                               value="5"
                                oninput="onInputHeight(value)"
                         >
                         <div style="padding-left: 1rem; flex: 1">
                             <input type="range"
                                    min="5"
                                    max="116"
+                                   value="5"
                                    step="0.01"
                                    id="heightRange"
                                    name="heightRange"
@@ -252,16 +263,17 @@ function translate() {
                         <input type="number"
                                min="0.25"
                                max="4.84"
+                               value="0.25"
                                step="0.01"
                                id="diameter"
                                class="form-control"
-                               value="0.25"
                                oninput="onInputDiameter(value)"
                         >
                         <div style="padding-left: 1rem; flex: 1">
                             <input type="range"
                                    min="0.25"
                                    max="4.84"
+                                   value="0.25"
                                    step="0.01"
                                    id="diameterRange"
                                    name="diameterRange"
@@ -280,15 +292,16 @@ function translate() {
                         <input type="number"
                                min="2"
                                max="500"
+                               value="2"
                                id="age"
                                class="form-control"
-                               value="2"
                                oninput="onInputAge(value)"
                         >
                         <div style="padding-left: 1rem; flex: 1">
                             <input type="range"
                                    min="2"
                                    max="500"
+                                   value="2"
                                    id="diameterAge"
                                    name="diameterAge"
                                    class="custom-range"
@@ -296,6 +309,32 @@ function translate() {
                             <div class="range-marks d-flex">
                                 <div class="range-mark-min">2</div>
                                 <div class="range-mark-max flex-grow text-right w-100">500</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="treeCount"><span name="treeCountName">Tree number</span></label><br>
+                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                        <input type="number"
+                               min="1"
+                               max="10000"
+                               id="treeCount"
+                               class="form-control"
+                               value="1"
+                               oninput="onInputTreeCount(value)">
+                        <div style="padding-left: 1rem; flex: 1">
+                            <input type="range"
+                                   min="1"
+                                   max="10000"
+                                   value="1"
+                                   id="treeCountRange"
+                                   name="treeCountRange"
+                                   class="custom-range"
+                                   oninput="onInputTreeCountRange(value)">
+                            <div class="range-marks d-flex">
+                                <div class="range-mark-min">1</div>
+                                <div class="range-mark-max flex-grow text-right w-100">10000</div>
                             </div>
                         </div>
                     </div>
@@ -310,16 +349,17 @@ function translate() {
                         <input type="number"
                                min="5"
                                max="116"
+                               value="5"
                                step="0.01"
                                id="height"
                                class="form-control"
-                               value="5"
                                oninput="onInputHeight(value)"
                         >
                         <div style="padding-left: 1rem; flex: 1">
                             <input type="range"
                                    min="5"
                                    max="116"
+                                   value="5"
                                    step="0.01"
                                    id="heightRange"
                                    name="heightRange"
@@ -338,16 +378,17 @@ function translate() {
                         <input type="number"
                                min="0.25"
                                max="4.84"
+                               value="0.25"
                                step="0.01"
                                id="diameter"
                                class="form-control"
-                               value="0.25"
                                oninput="onInputDiameter(value)"
                         >
                         <div style="padding-left: 1rem; flex: 1">
                             <input type="range"
                                    min="0.25"
                                    max="4.84"
+                                   value="0.25"
                                    step="0.01"
                                    id="diameterRange"
                                    name="diameterRange"
@@ -366,15 +407,16 @@ function translate() {
                         <input type="number"
                                min="2"
                                max="500"
+                               value="2"
                                id="age"
                                class="form-control"
-                               value="2"
                                oninput="onInputAge(value)"
                         >
                         <div style="padding-left: 1rem; flex: 1">
                             <input type="range"
                                    min="2"
                                    max="500"
+                                   value="2"
                                    id="diameterAge"
                                    name="diameterAge"
                                    class="custom-range"
@@ -385,7 +427,33 @@ function translate() {
                             </div>
                         </div>
                     </div>
-                </div>`;
+                </div>
+                <div>
+                    <label for="treeCount"><span name="treeCountName">Количество деревьев</span></label><br>
+                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                        <input type="number"
+                               min="1"
+                               max="10000"
+                               value="1"
+                               id="treeCount"
+                               class="form-control"
+                               oninput="onInputTreeCount(value)">
+                        <div style="padding-left: 1rem; flex: 1">
+                            <input type="range"
+                                   min="1"
+                                   max="10000"
+                                   value="1"
+                                   id="treeCountRange"
+                                   name="treeCountRange"
+                                   class="custom-range"
+                                   oninput="onInputTreeCountRange(value)">
+                            <div class="range-marks d-flex">
+                                <div class="range-mark-min">1</div>
+                                <div class="range-mark-max flex-grow text-right w-100">10000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  `;
 
     let engHeader = `<h1>Calculator</h1>`;
     let ruHeader = `<h1>Калькулятор</h1>`
@@ -399,7 +467,6 @@ function translate() {
         document.getElementById('results').innerHTML = rusResults;
         document.getElementById('params').innerHTML = ruParams;
     }
-
 }
 
 document.addEventListener("DOMContentLoaded", function () {
