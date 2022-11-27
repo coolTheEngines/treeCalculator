@@ -222,6 +222,7 @@ function changeMetricSystem(val) {
     updateMetricValues();
     minMaxValuesInit();
     changeMetricActive();
+    inputBackgroundUpdate();
 }
 
 function changeHeightSvgIcon() {
@@ -378,6 +379,43 @@ function translate() {
         document.getElementById('weightOfCO2NameId').innerHTML = "Вес СО2, секвестрированного за год:";
     }
     changeMetricNaming();
+    inputBackgroundUpdate();
+}
+
+function inputBackgroundUpdate() {
+    let metersEN = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">meters</text></svg>\') no-repeat;';
+    let feetEN = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">feet</text></svg>\') no-repeat;';
+    let inchesEN = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">inches</text></svg>\') no-repeat;';
+    let ageEN = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">years</text></svg>\') no-repeat;';
+    let countEN = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">count</text></svg>\') no-repeat;';
+
+    let metersRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">метры</text></svg>\') no-repeat;';
+    let feetRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">футы</text></svg>\') no-repeat;';
+    let inchesRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">инчи</text></svg>\') no-repeat;';
+    let ageRU =' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">годы</text></svg>\') no-repeat;';
+    let countRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">кол-во</text></svg>\') no-repeat;';
+
+    if (metric === metricEU && language === languageEN) {
+        document.getElementById('height').setAttribute( 'style', 'background: ' + metersEN + ' ) !important' );
+        document.getElementById('diameter').setAttribute( 'style', 'background: ' + metersEN + ' ) !important' );
+        document.getElementById('age').setAttribute( 'style', 'background: ' + ageEN + ' ) !important' );
+        document.getElementById('treeCount').setAttribute( 'style', 'background: ' + countEN + ' ) !important' );
+    } else if (metric === metricEU && language === languageRU) {
+        document.getElementById('height').setAttribute( 'style', 'background: ' + metersRU + ' ) !important' );
+        document.getElementById('diameter').setAttribute( 'style', 'background: ' + metersRU + ' ) !important' );
+        document.getElementById('age').setAttribute( 'style', 'background: ' + ageRU + ' ) !important' );
+        document.getElementById('treeCount').setAttribute( 'style', 'background: ' + countRU + ' ) !important' );
+    } else if (metric === metricUK && language === languageEN) {
+        document.getElementById('height').setAttribute( 'style', 'background: ' + feetEN + ' ) !important' );
+        document.getElementById('diameter').setAttribute( 'style', 'background: ' + inchesEN + ' ) !important' );
+        document.getElementById('age').setAttribute( 'style', 'background: ' + ageEN + ' ) !important' );
+        document.getElementById('treeCount').setAttribute( 'style', 'background: ' + countEN + ' ) !important' );
+    } else if (metric === metricUK && language === languageRU) {
+        document.getElementById('height').setAttribute( 'style', 'background: ' + feetRU + ' ) !important' );
+        document.getElementById('diameter').setAttribute( 'style', 'background: ' + inchesRU + ' ) !important' );
+        document.getElementById('age').setAttribute( 'style', 'background: ' + ageRU + ' ) !important' );
+        document.getElementById('treeCount').setAttribute( 'style', 'background: ' + countRU + ' ) !important' );
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {

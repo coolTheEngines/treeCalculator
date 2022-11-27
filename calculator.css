@@ -241,7 +241,7 @@ body {
   font-weight: 500;
   font-size: 16px;
   color: #11563C;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">meters</text></svg>') no-repeat;
+  /*background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">meters1</text></svg>') no-repeat;*/
 }
 
 .res-label {
