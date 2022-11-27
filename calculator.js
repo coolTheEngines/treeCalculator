@@ -6,59 +6,111 @@ const metricEU = "metricEU";
 
 const metricMultiplierEU = Number(0.453592);
 
+//values in meters
+let heightMax = Number(116);
+let diameterMax = Number(4.84);
+let ageMax = Number(500);
+let treeCountMax = Number(1000);
+
+//values in meters
+let heightMin = Number(5);
+let diameterMin = Number(0.25);
+let ageMin = Number(2);
+let treeCountMin = Number(1);
+
+//values in meters
 let height = Number(5);
 let diameter = Number(0.25);
 let age = Number(2);
 let treeCount = Number(1);
 
 let language = languageEN;
-let metric = metricUK;
+let metric = metricEU;
+
+function inputInit() {
+    onInputHeight(height);
+    onInputDiameter(diameter);
+    onInputAge(age);
+    onInputTreeCount(treeCount);
+}
+
+function minMaxValuesInit() {
+    if (metric === metricEU) {
+        document.getElementById('height').min = heightMin;
+        document.getElementById('height').max = heightMax;
+        document.getElementById('heightRange').min = heightMin;
+        document.getElementById('heightRange').max = heightMax;
+
+        document.getElementById('diameter').min = diameterMin;
+        document.getElementById('diameter').max = diameterMax;
+        document.getElementById('diameterRange').min = diameterMin;
+        document.getElementById('diameterRange').max = diameterMax;
+    } else {
+        document.getElementById('height').min = round(heightMin / metricMultiplierEU);
+        document.getElementById('height').max = round(heightMax / metricMultiplierEU);
+        document.getElementById('heightRange').min = round(heightMin / metricMultiplierEU);
+        document.getElementById('heightRange').max = round(heightMax / metricMultiplierEU);
+
+        document.getElementById('diameter').min = round(diameterMin / metricMultiplierEU);
+        document.getElementById('diameter').max = round(diameterMax / metricMultiplierEU);
+        document.getElementById('diameterRange').min = round(diameterMin / metricMultiplierEU);
+        document.getElementById('diameterRange').max = round(diameterMax / metricMultiplierEU);
+    }
+}
 
 function onInputHeight(val) {
     height = Number(val);
     document.getElementById('heightRange').value = val;
+    changeHeightSvgIcon();
     calc();
 }
 
 function onInputHeightRange(val) {
     height = Number(val);
     document.getElementById('height').value = val;
+    changeHeightSvgIcon();
     calc();
 }
 
 function onInputDiameter(val) {
     diameter = Number(val);
     document.getElementById('diameterRange').value = val;
+    changeDiameterSvgIcon();
     calc();
 }
 
 function onInputDiameterRange(val) {
     diameter = Number(val);
     document.getElementById('diameter').value = val;
+    changeDiameterSvgIcon();
     calc();
 }
 
 function onInputAge(val) {
     age = Number(val);
     document.getElementById('ageRange').value = val;
+    changeAgeSvgIcon();
     calc();
 }
 
 function onInputAgeRange(val) {
     age = Number(val);
     document.getElementById('age').value = val;
+    changeAgeSvgIcon();
     calc();
 }
 
 function onInputTreeCount(val) {
     treeCount = Number(val);
     document.getElementById('treeCountRange').value = val;
+    changeTreeCountSvgIcon();
     calc();
 }
 
 function onInputTreeCountRange(val) {
     treeCount = Number(val);
     document.getElementById('treeCount').value = val;
+    changeTreeCountSvgIcon();
     calc();
 }
 
@@ -119,6 +171,7 @@ function calcWeightOfCarbonDioxide() {
 
 let weightOfCO2;
 let weightOfCO2Kg;
+
 // WCO2 / age of the tree
 function calcWeightOfCO2() {
     let res = weightOfCarbonDioxide / age * treeCount;
@@ -149,42 +202,121 @@ function openUrl(url) {
     window.open(url);
 }
 
-function changeLanguage() {
-    if (language === languageEN) {
-        language = languageRU;
-    } else {
+function changeLanguage(lang) {
+    if (lang === languageEN) {
         language = languageEN;
+    } else {
+        language = languageRU;
     }
+    changeLanguageActive();
     translate();
-    calc();
 }
 
-function changeMetricSystem() {
-    if (metric === metricUK) {
-        metric = metricEU;
-    } else {
+function changeMetricSystem(val) {
+    if (val === metricUK) {
         metric = metricUK;
+    } else {
+        metric = metricEU;
     }
     changeMetricNaming();
     updateMetricValues();
+    minMaxValuesInit();
+    changeMetricActive();
+}
+
+function changeHeightSvgIcon() {
+    let maxValue = heightMax - heightMin;
+    let minSvgValue = maxValue / 3;
+    let maxSvgValue = maxValue - minSvgValue;
+
+    let smallSvgSrc = "icons/Property 1=tree, Property 2=age-1.svg";
+    let mediumSvgSrc = "icons/Property 1=tree, Property 2=age-2.svg";
+    let bigSvgSrc = "icons/Property 1=tree, Property 2=age-3.svg";
+
+    if (height < minSvgValue) document.getElementById('heightImgId').src = smallSvgSrc;
+    if (height >= minSvgValue) document.getElementById('heightImgId').src = mediumSvgSrc;
+    if (height >= maxSvgValue) document.getElementById('heightImgId').src = bigSvgSrc;
+}
+
+function changeDiameterSvgIcon() {
+    let maxValue = diameterMax - diameterMin;
+    let minSvgValue = maxValue / 3;
+    let maxSvgValue = maxValue - minSvgValue;
+
+    let smallSvgSrc = "icons/Property 1=tree, Property 2=diameter-1.svg";
+    let mediumSvgSrc = "icons/Property 1=tree, Property 2=diameter-2.svg";
+    let bigSvgSrc = "icons/Property 1=tree, Property 2=diameter-3.svg";
+
+    if (diameter < minSvgValue) document.getElementById('diameterImgId').src = smallSvgSrc;
+    if (diameter >= minSvgValue) document.getElementById('diameterImgId').src = mediumSvgSrc;
+    if (diameter >= maxSvgValue) document.getElementById('diameterImgId').src = bigSvgSrc;
+}
+
+function changeAgeSvgIcon() {
+    let maxValue = ageMax - ageMin;
+    let minSvgValue = maxValue / 3;
+    let maxSvgValue = maxValue - minSvgValue;
+
+    let smallSvgSrc = "icons/Property 1=tree, Property 2=age-1.svg";
+    let mediumSvgSrc = "icons/Property 1=tree, Property 2=age-2.svg";
+    let bigSvgSrc = "icons/Property 1=tree, Property 2=age-3.svg";
+
+    if (age < minSvgValue) document.getElementById('ageImgId').src = smallSvgSrc;
+    if (age >= minSvgValue) document.getElementById('ageImgId').src = mediumSvgSrc;
+    if (age >= maxSvgValue) document.getElementById('ageImgId').src = bigSvgSrc;
+}
+
+function changeTreeCountSvgIcon() {
+    let maxValue = treeCountMax - treeCountMin;
+    let minSvgValue = maxValue / 3;
+    let maxSvgValue = maxValue - minSvgValue;
+
+    let smallSvgSrc = "icons/Property 1=tree, Property 2=numbers-1.svg";
+    let mediumSvgSrc = "icons/Property 1=tree, Property 2=numbers-2.svg";
+    let bigSvgSrc = "icons/Property 1=tree, Property 2=numbers-3.svg";
+
+    if (treeCount < minSvgValue) document.getElementById('numbersImgId').src = smallSvgSrc;
+    if (treeCount >= minSvgValue) document.getElementById('numbersImgId').src = mediumSvgSrc;
+    if (treeCount >= maxSvgValue) document.getElementById('numbersImgId').src = bigSvgSrc;
+}
+
+
+function changeLanguageActive() {
+    if (language === languageEN) {
+        document.getElementById("engName").className = 'lang-button-active pointer';
+        document.getElementById("engLine").className = 'lang-button-active-line';
+        document.getElementById("rusName").className = 'lang-button-inactive pointer';
+        document.getElementById("rusLine").className = 'lang-button-inactive-line';
+    } else {
+        document.getElementById("rusName").className = 'lang-button-active pointer';
+        document.getElementById("rusLine").className = 'lang-button-active-line';
+        document.getElementById("engName").className = 'lang-button-inactive pointer';
+        document.getElementById("engLine").className = 'lang-button-inactive-line';
+    }
+}
+
+function changeMetricActive() {
+    if (metric === metricUK) {
+        document.getElementById("metersLabelId").className = 'parameter-type-inactive pointer';
+        document.getElementById("metersLabelLineId").className = '';
+        document.getElementById("feetLabelId").className = 'parameter-type-active pointer';
+        document.getElementById("feetLabelLineId").className = 'parameter-type-active-line';
+    } else {
+        document.getElementById("metersLabelId").className = 'parameter-type-active pointer';
+        document.getElementById("metersLabelLineId").className = 'parameter-type-active-line';
+        document.getElementById("feetLabelId").className = 'parameter-type-inactive pointer';
+        document.getElementById("feetLabelLineId").className = '';
+    }
 }
 
 function changeMetricNaming() {
     if (metric === metricEU && language === languageEN) {
-        document.getElementsByName('heightParam').forEach(el => el.innerHTML = "meters");
-        document.getElementsByName('diameterParam').forEach(el => el.innerHTML = "meters");
         document.getElementsByName('weightResult').forEach(el => el.innerHTML = "kg");
     } else if (metric === metricEU && language === languageRU) {
-        document.getElementsByName('heightParam').forEach(el => el.innerHTML = "метры");
-        document.getElementsByName('diameterParam').forEach(el => el.innerHTML = "метры");
         document.getElementsByName('weightResult').forEach(el => el.innerHTML = "кг");
     } else if (metric === metricUK && language === languageEN) {
-        document.getElementsByName('heightParam').forEach(el => el.innerHTML = "feet");
-        document.getElementsByName('diameterParam').forEach(el => el.innerHTML = "inches");
         document.getElementsByName('weightResult').forEach(el => el.innerHTML = "pounds");
     } else if (metric === metricUK && language === languageRU) {
-        document.getElementsByName('heightParam').forEach(el => el.innerHTML = "футы");
-        document.getElementsByName('diameterParam').forEach(el => el.innerHTML = "дюймы");
         document.getElementsByName('weightResult').forEach(el => el.innerHTML = "фунтов");
     }
 }
@@ -207,269 +339,50 @@ function updateMetricValues() {
 }
 
 function translate() {
-    let rusResults = `
-        <h4>Результаты:</h4>
-        <div>Зеленый вес: <span id="greenWeight"></span>, <span name="weightResult">фунтов</span></div>
-        <div>Сухой вес: <span id="dryWeight"></span>, <span name="weightResult">фунтов</span></div>
-        <div>Вес углекислого газа: <span id="weightOfCarbon"></span>, <span name="weightResult">фунтов</span></div>
-        <div>Вес выделенного углекислого газа: <span id="weightOfCarbonDioxide"></span>, <span name="weightResult">фунтов</span></div>
-        <div>Вес СО2, секвестрированного за год: <span id="weightOfCO2"></span>, <span name="weightResult">фунтов</span></div>
-   `;
-
-    let engResults = `
-        <h4>Tree results:</h4>
-        <div>Green weight: <span id="greenWeight"></span>, <span name="weightResult">pounds</span></div>
-        <div>Dry weight: <span id="dryWeight"></span>, <span name="weightResult">pounds</span></div>
-        <div>Weight of carbon: <span id="weightOfCarbon"></span>, <span name="weightResult">pounds</span></div>
-        <div>Weight of carbon dioxide sequestered: <span id="weightOfCarbonDioxide"></span>, <span name="weightResult">pounds</span></div>
-        <div>Weight of CO2 sequestered per year: <span id="weightOfCO2"></span>, <span name="weightResult">pounds</span></div>
-    `;
-
-    let engParams =
-        `
-        <h4>Tree params</h4>
-                <div>
-                    <label for="height">Height, <span name="heightParam">feet</span></label><br>
-                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                        <input type="number"
-                               min="5"
-                               max="116"
-                               value="5"
-                               step="0.01"
-                               id="height"
-                               class="form-control"
-                               oninput="onInputHeight(value)"
-                        >
-                        <div style="padding-left: 1rem; flex: 1">
-                            <input type="range"
-                                   min="5"
-                                   max="116"
-                                   value="5"
-                                   step="0.01"
-                                   id="heightRange"
-                                   name="heightRange"
-                                   class="custom-range"
-                                   oninput="onInputHeightRange(value)">
-                            <div class="range-marks d-flex">
-                                <div class="range-mark-min">5</div>
-                                <div class="range-mark-max flex-grow text-right w-100">116</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <label for="diameter">Diameter, <span name="diameterParam">inches</span></label><br>
-                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                        <input type="number"
-                               min="0.25"
-                               max="4.84"
-                               value="0.25"
-                               step="0.01"
-                               id="diameter"
-                               class="form-control"
-                               oninput="onInputDiameter(value)"
-                        >
-                        <div style="padding-left: 1rem; flex: 1">
-                            <input type="range"
-                                   min="0.25"
-                                   max="4.84"
-                                   value="0.25"
-                                   step="0.01"
-                                   id="diameterRange"
-                                   name="diameterRange"
-                                   class="custom-range"
-                                   oninput="onInputDiameterRange(value)">
-                            <div class="range-marks d-flex">
-                                <div class="range-mark-min">0.25</div>
-                                <div class="range-mark-max flex-grow text-right w-100">4.84</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <label for="age">Age, <span name="ageParam">years</span></label><br>
-                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                        <input type="number"
-                               min="2"
-                               max="500"
-                               value="2"
-                               id="age"
-                               class="form-control"
-                               oninput="onInputAge(value)"
-                        >
-                        <div style="padding-left: 1rem; flex: 1">
-                            <input type="range"
-                                   min="2"
-                                   max="500"
-                                   value="2"
-                                   id="diameterAge"
-                                   name="diameterAge"
-                                   class="custom-range"
-                                   oninput="onInputAgeRange(value)">
-                            <div class="range-marks d-flex">
-                                <div class="range-mark-min">2</div>
-                                <div class="range-mark-max flex-grow text-right w-100">500</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <label for="treeCount"><span name="treeCountName">Tree number</span></label><br>
-                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                        <input type="number"
-                               min="1"
-                               max="10000"
-                               id="treeCount"
-                               class="form-control"
-                               value="1"
-                               oninput="onInputTreeCount(value)">
-                        <div style="padding-left: 1rem; flex: 1">
-                            <input type="range"
-                                   min="1"
-                                   max="10000"
-                                   value="1"
-                                   id="treeCountRange"
-                                   name="treeCountRange"
-                                   class="custom-range"
-                                   oninput="onInputTreeCountRange(value)">
-                            <div class="range-marks d-flex">
-                                <div class="range-mark-min">1</div>
-                                <div class="range-mark-max flex-grow text-right w-100">10000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-
-    let ruParams =
-        `
-        <h4>Параметры дерева</h4>
-                <div>
-                    <label for="height">Высоты, <span name="heightParam">футы</span></label><br>
-                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                        <input type="number"
-                               min="5"
-                               max="116"
-                               value="5"
-                               step="0.01"
-                               id="height"
-                               class="form-control"
-                               oninput="onInputHeight(value)"
-                        >
-                        <div style="padding-left: 1rem; flex: 1">
-                            <input type="range"
-                                   min="5"
-                                   max="116"
-                                   value="5"
-                                   step="0.01"
-                                   id="heightRange"
-                                   name="heightRange"
-                                   class="custom-range"
-                                   oninput="onInputHeightRange(value)">
-                            <div class="range-marks d-flex">
-                                <div class="range-mark-min">5</div>
-                                <div class="range-mark-max flex-grow text-right w-100">116</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <label for="diameter">Диаметр, <span name="diameterParam">дюймы</span></label><br>
-                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                        <input type="number"
-                               min="0.25"
-                               max="4.84"
-                               value="0.25"
-                               step="0.01"
-                               id="diameter"
-                               class="form-control"
-                               oninput="onInputDiameter(value)"
-                        >
-                        <div style="padding-left: 1rem; flex: 1">
-                            <input type="range"
-                                   min="0.25"
-                                   max="4.84"
-                                   value="0.25"
-                                   step="0.01"
-                                   id="diameterRange"
-                                   name="diameterRange"
-                                   class="custom-range"
-                                   oninput="onInputDiameterRange(value)">
-                            <div class="range-marks d-flex">
-                                <div class="range-mark-min">0.25</div>
-                                <div class="range-mark-max flex-grow text-right w-100">4.84</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <label for="age">Возраст, <span name="ageParam">годы</span></label><br>
-                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                        <input type="number"
-                               min="2"
-                               max="500"
-                               value="2"
-                               id="age"
-                               class="form-control"
-                               oninput="onInputAge(value)"
-                        >
-                        <div style="padding-left: 1rem; flex: 1">
-                            <input type="range"
-                                   min="2"
-                                   max="500"
-                                   value="2"
-                                   id="diameterAge"
-                                   name="diameterAge"
-                                   class="custom-range"
-                                   oninput="onInputAgeRange(value)">
-                            <div class="range-marks d-flex">
-                                <div class="range-mark-min">2</div>
-                                <div class="range-mark-max flex-grow text-right w-100">500</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <label for="treeCount"><span name="treeCountName">Количество деревьев</span></label><br>
-                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                        <input type="number"
-                               min="1"
-                               max="10000"
-                               value="1"
-                               id="treeCount"
-                               class="form-control"
-                               oninput="onInputTreeCount(value)">
-                        <div style="padding-left: 1rem; flex: 1">
-                            <input type="range"
-                                   min="1"
-                                   max="10000"
-                                   value="1"
-                                   id="treeCountRange"
-                                   name="treeCountRange"
-                                   class="custom-range"
-                                   oninput="onInputTreeCountRange(value)">
-                            <div class="range-marks d-flex">
-                                <div class="range-mark-min">1</div>
-                                <div class="range-mark-max flex-grow text-right w-100">10000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>  `;
-
-    let engHeader = `<h1>Calculator</h1>`;
-    let ruHeader = `<h1>Калькулятор</h1>`
-
     if (language === languageEN) {
-        document.getElementById('header').innerHTML = engHeader;
-        document.getElementById('results').innerHTML = engResults;
-        document.getElementById('params').innerHTML = engParams;
+        document.getElementById('methodologyTextId').innerHTML = "<span class=\"methodology-link-link-txt\">Data and calculation</span> methodology provided by\n" +
+            "                            the World Agroforestry Centre's \"Agroforestree Database and Trees for the Future.";
+
+        document.getElementById('methodologyLabelId').innerHTML = "Methodology:";
+
+        document.getElementById('treeParametersLabelId').innerHTML = "Tree parameters";
+        document.getElementById('metersLabelId').innerHTML = "meters";
+        document.getElementById('feetLabelId').innerHTML = "feet";
+
+        document.getElementById('CO2absCalcNameId').innerHTML = "CO2 absorption calculator";
+
+        document.getElementById('resultsNameId').innerHTML = "Results:";
+        document.getElementById('greenWeightNameId').innerHTML = "Green Weight:";
+        document.getElementById('dryWeightNameId').innerHTML = "Dry weight:";
+        document.getElementById('weightOfCarbonNameId').innerHTML = "Weight of carbon:";
+        document.getElementById('weightOfCarbonDioxNameId').innerHTML = "Weight of carbon dioxide sequestered:";
+        document.getElementById('weightOfCO2NameId').innerHTML = "Weight of CO2 sequestered per year:";
+
     } else {
-        document.getElementById('header').innerHTML = ruHeader;
-        document.getElementById('results').innerHTML = rusResults;
-        document.getElementById('params').innerHTML = ruParams;
+        document.getElementById('methodologyTextId').innerHTML = "<span class=\"methodology-link-link-txt\">Данные и расчёт</span> методология предоставлена\n" +
+            "                            всемирным центром агролесоводства \"База Данных Агролесоводства и Деревья Будущего\"";
+
+        document.getElementById('methodologyLabelId').innerHTML = "Методология";
+
+        document.getElementById('treeParametersLabelId').innerHTML = "Параметры дерева";
+        document.getElementById('metersLabelId').innerHTML = "метры";
+        document.getElementById('feetLabelId').innerHTML = "футы";
+
+        document.getElementById('CO2absCalcNameId').innerHTML = "Калькулятор поглощения CO2";
+
+        document.getElementById('resultsNameId').innerHTML = "Результаты:";
+        document.getElementById('greenWeightNameId').innerHTML = "Зеленый вес:";
+        document.getElementById('dryWeightNameId').innerHTML = "Сухой вес:";
+        document.getElementById('weightOfCarbonNameId').innerHTML = "Вес углекислого газа:";
+        document.getElementById('weightOfCarbonDioxNameId').innerHTML = "Вес выделенного углекислого газа:";
+        document.getElementById('weightOfCO2NameId').innerHTML = "Вес СО2, секвестрированного за год:";
     }
+    changeMetricNaming();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    inputInit();
     translate();
+    changeMetricSystem(metric);
     calc();
 });
