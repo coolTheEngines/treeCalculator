@@ -229,9 +229,9 @@ function changeHeightSvgIcon() {
     let minSvgValue = maxValue / 3;
     let maxSvgValue = maxValue - minSvgValue;
 
-    let smallSvgSrc = "icons/Property 1=tree, Property 2=age-1.svg";
-    let mediumSvgSrc = "icons/Property 1=tree, Property 2=age-2.svg";
-    let bigSvgSrc = "icons/Property 1=tree, Property 2=age-3.svg";
+    let smallSvgSrc = "icons/Property 1=tree, Property 2=height-1.svg";
+    let mediumSvgSrc = "icons/Property 1=tree, Property 2=height-2.svg";
+    let bigSvgSrc = "icons/Property 1=tree, Property 2=height-3.svg";
 
     if (height < minSvgValue) document.getElementById('heightImgId').src = smallSvgSrc;
     if (height >= minSvgValue) document.getElementById('heightImgId').src = mediumSvgSrc;
