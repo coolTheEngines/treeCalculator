@@ -114,6 +114,9 @@ body {
 .links-background {
   justify-content: space-evenly;
   padding-top: 100px;
+}
+
+.link-opacity {
   opacity: 0.5;
 }
 
@@ -176,6 +179,11 @@ body {
     margin-top: 12px;
     margin-left: 0;
     margin-right: 0;
+  }
+
+  .global-margin {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 

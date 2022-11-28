@@ -212,6 +212,75 @@ function changeLanguage(lang) {
     translate();
 }
 
+function onMouseOverMetricMeters() {
+    let metersLabel = document.getElementById("metersLabelId");
+    let metersLabelLine = document.getElementById("metersLabelLineId");
+    let feetLabel = document.getElementById("feetLabelId");
+    let feetLabelLine = document.getElementById("feetLabelLineId");
+    let engName = document.getElementById("engName");
+    let engLine = document.getElementById("engLine");
+    let rusName = document.getElementById("rusName");
+    let rusLine = document.getElementById("rusLine");
+
+    metersLabel.onmouseover = function () {
+        metersLabelLine.setAttribute("class", "parameter-type-active-line");
+    }
+    metersLabel.onmouseout = function () {
+        metersLabelLine.setAttribute("class", "parameter-type-inactive-line");
+    }
+    feetLabel.onmouseover = function () {
+        feetLabelLine.setAttribute("class", "parameter-type-active-line");
+    }
+    feetLabel.onmouseout = function () {
+        feetLabelLine.setAttribute("class", "parameter-type-inactive-line");
+    }
+    engName.onmouseover = function () {
+        engLine.setAttribute("class", "lang-button-active-line");
+    }
+    engName.onmouseout = function () {
+        engLine.setAttribute("class", "lang-button-inactive-line");
+    }
+    rusName.onmouseover = function () {
+        rusLine.setAttribute("class", "lang-button-active-line");
+    }
+    rusName.onmouseout = function () {
+        rusLine.setAttribute("class", "lang-button-inactive-line");
+    }
+
+}
+
+function onMouseOverPartnerLogo() {
+    let utmnLogo = document.getElementById("utmnLogoId");
+    let carbonLogo = document.getElementById("carbonLogoId");
+    let siburLogo = document.getElementById("siburLogoId");
+    let cityLogo = document.getElementById("cityLogoId");
+
+    utmnLogo.onmouseover = function () {
+        utmnLogo.style.opacity = "1";
+    }
+    utmnLogo.onmouseout = function () {
+        utmnLogo.style.opacity = "0.5";
+    }
+    carbonLogo.onmouseover = function () {
+        carbonLogo.style.opacity = "1";
+    }
+    carbonLogo.onmouseout = function () {
+        carbonLogo.style.opacity = "0.5";
+    }
+    siburLogo.onmouseover = function () {
+        siburLogo.style.opacity = "1";
+    }
+    siburLogo.onmouseout = function () {
+        siburLogo.style.opacity = "0.5";
+    }
+    cityLogo.onmouseover = function () {
+        cityLogo.style.opacity = "1";
+    }
+    cityLogo.onmouseout = function () {
+        cityLogo.style.opacity = "0.5";
+    }
+}
+
 function changeMetricSystem(val) {
     if (val === metricUK) {
         metric = metricUK;
@@ -423,4 +492,43 @@ document.addEventListener("DOMContentLoaded", function () {
     translate();
     changeMetricSystem(metric);
     calc();
+    // onMouseOverMetricMeters();
+    onMouseOverPartnerLogo();
 });
+
+function onMouseOverMetricMeters() {
+    let metersLabel = document.getElementById("metersLabelId");
+    let metersLabelLine = document.getElementById("metersLabelLineId");
+    let feetLabel = document.getElementById("feetLabelId");
+    let feetLabelLine = document.getElementById("feetLabelLineId");
+    let engName = document.getElementById("engName");
+    let engLine = document.getElementById("engLine");
+    let rusName = document.getElementById("rusName");
+    let rusLine = document.getElementById("rusLine");
+
+    metersLabel.onmouseover = function () {
+        metersLabelLine.setAttribute("class", "parameter-type-active-line");
+    }
+    metersLabel.onmouseout = function () {
+        metersLabelLine.setAttribute("class", "parameter-type-inactive-line");
+    }
+    feetLabel.onmouseover = function () {
+        feetLabelLine.setAttribute("class", "parameter-type-active-line");
+    }
+    feetLabel.onmouseout = function () {
+        feetLabelLine.setAttribute("class", "parameter-type-inactive-line");
+    }
+    engName.onmouseover = function () {
+        engLine.setAttribute("class", "lang-button-active-line");
+    }
+    engName.onmouseout = function () {
+        engLine.setAttribute("class", "lang-button-inactive-line");
+    }
+    rusName.onmouseover = function () {
+        rusLine.setAttribute("class", "lang-button-active-line");
+    }
+    rusName.onmouseout = function () {
+        rusLine.setAttribute("class", "lang-button-inactive-line");
+    }
+
+}
