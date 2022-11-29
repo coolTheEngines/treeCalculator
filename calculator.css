@@ -67,6 +67,22 @@ body {
   background-size: cover;
 }
 
+.global-height {
+  height: 100%;
+  height: -moz-available;          /* WebKit-based browsers will ignore this. */
+  height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  height: fill-available;
+}
+
+/*.custom-range::-webkit-slider-thumb {*/
+/*  width: 13px;*/
+/*  height: 13px;*/
+/*  background-color: #36BF7D;*/
+/*  border-radius: 3px;*/
+/*  -webkit-appearance: none;*/
+/*  appearance: none*/
+/*}*/
+
 .left-group-padding-md {
   padding-right: 70px;
 }
@@ -85,7 +101,7 @@ body {
 }
 
 .left-upper-row-padding-md {
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 .input-group-padding {
@@ -97,6 +113,7 @@ body {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   border-left: 2px solid rgba(145, 145, 145, 0.25);
+  padding-right: 0;
 }
 
 .right-res-padding-md {
@@ -109,6 +126,11 @@ body {
 
 .methodology-left-padding-md {
   padding-left: 34px;
+  /*padding-right: 34px;*/
+}
+
+.res-label-padding-md {
+  padding-top: 12px;
 }
 
 .links-background {
@@ -120,7 +142,119 @@ body {
   opacity: 0.5;
 }
 
+.co2-header-font-size {
+  font-size: 40px;
+}
+
+.params-result-font-size {
+  font-size: 28px;
+}
+
+.methodology-font-size {
+  font-size: 20px;
+}
+
+.input-label-font-size {
+  font-size: 18px;
+}
+
+.res-label-font-size {
+  font-size: 20px;
+}
+
+.methodology-description-font-size {
+  font-size: 12px;
+}
+
+.translate-font-size {
+  font-size: 20px;
+}
+
+.global-margin {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media (max-width: 1400px) {
+  .calculator-name-padding-md {
+    margin-top: 0px;
+    padding-top: 62px;
+  }
+
+  .left-upper-row-padding-md {
+    padding-top: 30px;
+  }
+
+  .left-group-padding-md {
+    padding-right: 26px;
+  }
+
+  .right-res-padding-md {
+    padding-left: 0;
+  }
+
+  .right-res-res-padding-md {
+    padding-top: 0;
+  }
+
+  .res-label-padding-md {
+    padding-top: 9px;
+  }
+
+  .methodology-left-padding-md {
+    padding-left: 0;
+  }
+
+  .co2-header-font-size {
+    font-size: 38px !important;
+  }
+
+  .params-result-font-size {
+    font-size: 22px !important;
+  }
+
+  .methodology-font-size {
+    font-size: 20px !important;
+  }
+
+  .input-label-font-size {
+    font-size: 18px !important;
+  }
+
+  .res-label-font-size {
+    font-size: 16px !important;
+  }
+
+  .methodology-description-font-size {
+    font-size: 12px !important;
+  }
+
+  .translate-font-size {
+    font-size: 20px !important;
+  }
+
+  .main-body-padding-md {
+    padding-top: 52px;
+  }
+}
+
 @media (max-width: 992px) {
+  .right-border-style-md {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left: 0px;
+    padding-right: 0;
+  }
+
+  .calculator-name-padding-md {
+    margin-top: 0px;
+    padding-top: 47px;
+  }
+
+  .main-body-padding-md {
+    padding-top: 47px;
+  }
+
 }
 
 @media (max-width: 767px) {
@@ -154,10 +288,6 @@ body {
     padding-right: 20px
   }
 
-  .right-border-style-md {
-    border: none;
-  }
-
   .right-res-padding-md {
     padding-left: 0;
   }
@@ -182,8 +312,8 @@ body {
   }
 
   .global-margin {
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 42px;
+    padding-right: 42px;
   }
 }
 
@@ -191,7 +321,7 @@ body {
   font-family: 'Onest';
   font-style: normal;
   font-weight: 800;
-  font-size: 20px;
+  /*font-size: 20px;*/
   line-height: 90%;
   color: #36BF7D;
 }
@@ -213,7 +343,7 @@ body {
   font-family: 'Onest';
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  /*font-size: 20px;*/
   line-height: 90%;
   color: #36BF7D;
 }
@@ -230,7 +360,7 @@ body {
   font-family: 'Onest';
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
+  /*font-size: 18px;*/
   color: #212121;
 }
 
@@ -256,19 +386,21 @@ body {
   font-family: 'Onest';
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  /*font-size: 20px;*/
   line-height: 25px;
   color: #212121;
   margin-right: 8px;
+  display: inline-block;
 }
 
 .res-res {
   font-family: 'OnestRegular';
   font-style: normal;
   font-weight: 10;
-  font-size: 20px;
+  /*font-size: 20px;*/
   line-height: 25px;
   color: #212121;
+  display: inline-block;
 }
 
 /**
@@ -280,7 +412,7 @@ body {
   font-family: 'Onest';
   font-style: normal;
   font-weight: 700;
-  font-size: 40px;
+  /*font-size: 40px;*/
   line-height: 90%;
   color: #212121;
 }
@@ -289,7 +421,7 @@ body {
   font-family: 'Onest';
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  /*font-size: 20px;*/
   line-height: 36px;
   color: #36BF7D;
   display: inline-block;
@@ -306,7 +438,7 @@ body {
   font-family: 'Onest';
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  /*font-size: 12px;*/
   line-height: 117.5%;
 }
 
@@ -314,7 +446,7 @@ body {
   font-family: 'Onest';
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  /*font-size: 12px;*/
   line-height: 117.5%;
   text-decoration-line: underline;
   color: #36BF7D;
@@ -325,7 +457,7 @@ body {
   font-family: 'Onest';
   font-style: normal;
   font-weight: 700;
-  font-size: 28px;
+  /*font-size: 28px;*/
   line-height: 36px;
   color: #36BF7D;
   display: inline-block;
@@ -336,7 +468,7 @@ body {
   font-family: 'Onest';
   font-style: normal;
   font-weight: 700;
-  font-size: 28px;
+  /*font-size: 28px;*/
   line-height: 36px;
   color: #11563C;
   display: inline-block;
@@ -352,12 +484,22 @@ body {
   background: #11563C;
 }
 
+.parameter-type-inactive-line {
+  width: 92px;
+  height: 0px;
+  left: 232px;
+  top: 36px;
+  opacity: 0;
+  border: 1px solid #11563C;
+  background: #11563C;
+}
+
 .parameter-type-inactive {
   /* feet */
   font-family: 'Onest';
   font-style: normal;
   font-weight: 700;
-  font-size: 28px;
+  /*font-size: 28px;*/
   line-height: 36px;
   color: #11563C;
   opacity: 0.2;
