@@ -419,14 +419,14 @@ function translate() {
         document.getElementById('metersLabelId').innerHTML = "meters";
         document.getElementById('feetLabelId').innerHTML = "feet";
 
-        document.getElementById('CO2absCalcNameId').innerHTML = "CO2 absorption calculator";
+        document.getElementById('CO2absCalcNameId').innerHTML = "co2 absorption calculator";
 
         document.getElementById('resultsNameId').innerHTML = "Results:";
         document.getElementById('greenWeightNameId').innerHTML = "Green Weight:";
         document.getElementById('dryWeightNameId').innerHTML = "Dry weight:";
         document.getElementById('weightOfCarbonNameId').innerHTML = "Weight of carbon:";
         document.getElementById('weightOfCarbonDioxNameId').innerHTML = "Weight of carbon dioxide sequestered:";
-        document.getElementById('weightOfCO2NameId').innerHTML = "Weight of CO2 sequestered per year:";
+        document.getElementById('weightOfCO2NameId').innerHTML = "Weight of co2 sequestered per year:";
 
     } else {
         document.getElementById('methodologyTextId').innerHTML = "<span class=\"methodology-link-link-txt\">Данные и расчёт</span> методология предоставлена\n" +
@@ -438,7 +438,7 @@ function translate() {
         document.getElementById('metersLabelId').innerHTML = "метры";
         document.getElementById('feetLabelId').innerHTML = "футы";
 
-        document.getElementById('CO2absCalcNameId').innerHTML = "Калькулятор поглощения CO2";
+        document.getElementById('CO2absCalcNameId').innerHTML = "Калькулятор поглощения co2";
 
         document.getElementById('resultsNameId').innerHTML = "Результаты:";
         document.getElementById('greenWeightNameId').innerHTML = "Зеленый вес:";

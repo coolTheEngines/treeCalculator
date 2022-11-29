@@ -64,14 +64,14 @@ body {
 
 .background {
   background-image: radial-gradient(96.3% 96.3% at 50% 80.74%, rgba(255, 255, 255, 0.92) 0%, #FFFFFF 77.53%), url('video.png');
-  background-size: cover;
+  /*background-size: cover;*/
 }
 
 .global-height {
-  height: 100%;
-  height: -moz-available;          /* WebKit-based browsers will ignore this. */
-  height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-  height: fill-available;
+  /*height: 100%;*/
+  /*height: -moz-available;          !* WebKit-based browsers will ignore this. *!*/
+  /*height: -webkit-fill-available;  !* Mozilla-based browsers will ignore this. *!*/
+  /*height: fill-available;*/
 }
 
 /*.custom-range::-webkit-slider-thumb {*/
@@ -206,31 +206,31 @@ body {
   }
 
   .co2-header-font-size {
-    font-size: 38px !important;
+    font-size: 38px;
   }
 
   .params-result-font-size {
-    font-size: 22px !important;
+    font-size: 22px ;
   }
 
   .methodology-font-size {
-    font-size: 20px !important;
+    font-size: 20px ;
   }
 
   .input-label-font-size {
-    font-size: 18px !important;
+    font-size: 18px;
   }
 
   .res-label-font-size {
-    font-size: 16px !important;
+    font-size: 16px;
   }
 
   .methodology-description-font-size {
-    font-size: 12px !important;
+    font-size: 12px ;
   }
 
   .translate-font-size {
-    font-size: 20px !important;
+    font-size: 20px ;
   }
 
   .main-body-padding-md {
@@ -314,6 +314,105 @@ body {
   .global-margin {
     padding-left: 42px;
     padding-right: 42px;
+  }
+}
+
+@media (max-width: 580px) {
+  .translate-font-size {
+    font-size: 16px;
+  }
+
+  .co2-header-font-size {
+    font-size: 25px;
+  }
+
+  .params-result-font-size {
+    font-size: 17px;
+  }
+
+  .input-label-font-size {
+    font-size: 16px;
+  }
+
+  .methodology-font-size {
+    font-size: 18px ;
+  }
+
+  .res-label-font-size {
+    font-size: 16px;
+  }
+
+  .methodology-description-font-size {
+    font-size: 12px ;
+  }
+
+  /********
+
+
+
+
+
+  .translate-font-size {
+    font-size: 20px ;
+  }
+  *****/
+
+  .left-group-padding-md {
+    padding-right: 0px;
+  }
+
+  .eng-block-padding-md {
+    padding-top: 15px;
+  }
+
+  .calculator-name-padding-md {
+    margin-top: 0px;
+    padding-top: 24px;
+  }
+
+  .left-upper-row-padding-md {
+    padding-top: 40px;
+  }
+
+  .main-body-padding-md {
+    padding-top: 24px;
+  }
+
+  .left-upper-row-padding-md {
+    padding-top: 16px;
+  }
+
+  .input-group-padding {
+    margin-bottom: 16px;
+    padding-right: 20px
+  }
+
+  .right-res-padding-md {
+    padding-left: 0;
+  }
+
+  .right-res-res-padding-md {
+    padding-top: 0;
+  }
+
+  .methodology-left-padding-md {
+    padding-left: 0;
+  }
+
+  .links-background {
+    justify-content: space-evenly;
+    background: rgba(23, 71, 53, 0.05);
+    border-radius: 8px;
+    padding: 16px;
+    gap: 32px;
+    margin-top: 12px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .global-margin {
+    padding-left: 21px;
+    padding-right: 21px;
   }
 }
 
