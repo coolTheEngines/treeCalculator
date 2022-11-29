@@ -353,14 +353,14 @@ function changeTreeCountSvgIcon() {
 
 function changeLanguageActive() {
     if (language === languageEN) {
-        document.getElementById("engName").className = 'lang-button-active pointer';
+        document.getElementById("engName").className = 'lang-button-active pointer translate-font-size';
         document.getElementById("engLine").className = 'lang-button-active-line';
-        document.getElementById("rusName").className = 'lang-button-inactive pointer';
+        document.getElementById("rusName").className = 'lang-button-inactive pointer translate-font-size';
         document.getElementById("rusLine").className = 'lang-button-inactive-line';
     } else {
-        document.getElementById("rusName").className = 'lang-button-active pointer';
+        document.getElementById("rusName").className = 'lang-button-active pointer translate-font-size';
         document.getElementById("rusLine").className = 'lang-button-active-line';
-        document.getElementById("engName").className = 'lang-button-inactive pointer';
+        document.getElementById("engName").className = 'lang-button-inactive pointer translate-font-size';
         document.getElementById("engLine").className = 'lang-button-inactive-line';
     }
 }
