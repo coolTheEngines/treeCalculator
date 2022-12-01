@@ -410,7 +410,9 @@ function updateMetricValues() {
 
 function translate() {
     if (language === languageEN) {
-        document.getElementById('methodologyTextId').innerHTML = "<span class=\"methodology-link-link-txt\">Data and calculation</span> methodology provided by\n" +
+        document.getElementById('methodologyTextId').innerHTML = "<span class=\"methodology-link-link-txt\">" +
+            "<a class=\"methodology-link-link-txt\" href=\"https://www.unm.edu/~jbrink/365/Documents/Calculating_tree_carbon.pdf\">Data and calculation</a>" +
+            "</span> methodology provided by\n" +
             "                            the World Agroforestry Centre's \"Agroforestree Database and Trees for the Future.";
 
         document.getElementById('methodologyLabelId').innerHTML = "Methodology:";
@@ -429,7 +431,9 @@ function translate() {
         document.getElementById('weightOfCO2NameId').innerHTML = "Weight of co2 sequestered per year:";
 
     } else {
-        document.getElementById('methodologyTextId').innerHTML = "<span class=\"methodology-link-link-txt\">Данные и расчёт</span> методология предоставлена\n" +
+        document.getElementById('methodologyTextId').innerHTML = "<span class=\"methodology-link-link-txt\">" +
+            "<a class=\"methodology-link-link-txt\" href=\"https://www.unm.edu/~jbrink/365/Documents/Calculating_tree_carbon.pdf\">Данные и расчёт</a>" +
+            "</span> методология предоставлена\n" +
             "                            всемирным центром агролесоводства \"База Данных Агролесоводства и Деревья Будущего\"";
 
         document.getElementById('methodologyLabelId').innerHTML = "Методология";
@@ -452,17 +456,17 @@ function translate() {
 }
 
 function inputBackgroundUpdate() {
-    let metersEN = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">meters</text></svg>\') no-repeat;';
-    let feetEN = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">feet</text></svg>\') no-repeat;';
-    let inchesEN = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">inches</text></svg>\') no-repeat;';
-    let ageEN = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">years</text></svg>\') no-repeat;';
-    let countEN = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">count</text></svg>\') no-repeat;';
+    let metersEN = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">meters</text></svg>\') no-repeat;';
+    let feetEN = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">feet</text></svg>\') no-repeat;';
+    let inchesEN = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">inches</text></svg>\') no-repeat;';
+    let ageEN = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">years</text></svg>\') no-repeat;';
+    let countEN = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">count</text></svg>\') no-repeat;';
 
-    let metersRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">метры</text></svg>\') no-repeat;';
-    let feetRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">футы</text></svg>\') no-repeat;';
-    let inchesRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">инчи</text></svg>\') no-repeat;';
-    let ageRU =' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">годы</text></svg>\') no-repeat;';
-    let countRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="55" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">кол-во</text></svg>\') no-repeat;';
+    let metersRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">метры</text></svg>\') no-repeat;';
+    let feetRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">футы</text></svg>\') no-repeat;';
+    let inchesRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">инчи</text></svg>\') no-repeat;';
+    let ageRU =' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">годы</text></svg>\') no-repeat;';
+    let countRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">кол-во</text></svg>\') no-repeat;';
 
     if (metric === metricEU && language === languageEN) {
         document.getElementById('height').setAttribute( 'style', 'background: ' + metersEN + ' ) !important' );

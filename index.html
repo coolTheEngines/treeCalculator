@@ -16,10 +16,11 @@
     <div>
         <div class="d-flex align-items-center eng-block-padding-md">
             <div style="padding-right: 24px;">
-                <div class="lang-button-active pointer translate-font-size" id="engName" onclick="changeLanguage('EN')">
-                    ENG
-                </div>
-                <div class="lang-button-active-line" id="engLine"></div>
+                    <div class="lang-button-active pointer translate-font-size" id="engName"
+                         onclick="changeLanguage('EN')">
+                        ENG
+                    </div>
+                    <div class="lang-button-active-line" id="engLine"></div>
             </div>
             <div>
                 <div class="lang-button-inactive pointer translate-font-size" id="rusName"
@@ -38,14 +39,11 @@
                 <div id="CO2absCalcNameId" class="calculator-name co2-header-font-size">co2 absorption calculator</div>
             </div>
         </div>
-
-        <!--   Основная часть "1400-1280", "960 - 720" , "720-390" -->
         <div class="row main-body-padding-md">
 
             <!--                Left part INPUTS !!!!!!!!!!!!!!!!!!!!!!!   -->
 
-            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-7 left-group-padding-md"
-                 id="params">
+            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-7 left-group-padding-md" id="params">
 
                 <div class="d-flex align-items-center params-result-font-size">
                     <div id="treeParametersLabelId" class="tree-parameters-name params-result-font-size"
@@ -53,7 +51,8 @@
                     </div>
                     <div style="padding-right: 11px">
                         <div id="metersLabelId" class="parameter-type-active pointer params-result-font-size"
-                             onclick="changeMetricSystem('metricEU')">meters
+                             onclick="changeMetricSystem('metricEU')"><div>meters</div>
+                            <div id="metersLabelLineId2" class="parameter-type-active-line">--</div>
                         </div>
                         <div id="metersLabelLineId" class="parameter-type-active-line"></div>
                     </div>
@@ -61,7 +60,7 @@
                         <div id="feetLabelId" class="parameter-type-inactive pointer params-result-font-size"
                              onclick="changeMetricSystem('metricUK')">feet
                         </div>
-                        <div id="feetLabelLineId" class="" style="width: 54px"></div>
+                        <div id="feetLabelLineId" class=""></div>
                     </div>
                 </div>
 
@@ -227,60 +226,44 @@
                     </div>
 
                     <div class="row right-res-res-padding-md">
+                        <div class="align-items-center res-label-font-size res-label-padding-md">
+                            <div id="greenWeightNameId" class="res-label ">Green weight:</div>
+                            <div class="res-res">
+                                <span id="greenWeight"></span>,
+                                <span name="weightResult">pounds</span>
+                            </div>
+                        </div>
                         <!--                        d-flex-->
-<!--                        <div class="col-xs-12 col-md-5 col-lg-12">-->
-                            <div class="align-items-center res-label-font-size res-label-padding-md">
-                                <div id="greenWeightNameId" class="res-label ">Green weight:</div>
-                                <div class="res-res">
-                                    <span id="greenWeight"></span>,
-                                    <span name="weightResult">pounds</span>
-                                </div>
+                        <div class="align-items-center res-label-font-size res-label-padding-md">
+                            <div id="dryWeightNameId" class="res-label">Dry weight:</div>
+                            <div class="res-res">
+                                <span id="dryWeight"></span>,
+                                <span name="weightResult">pounds</span>
                             </div>
-                            <!--                        d-flex-->
-                            <div class="align-items-center res-label-font-size res-label-padding-md">
-                                <div id="dryWeightNameId" class="res-label">Dry weight:</div>
-                                <div class="res-res">
-                                    <span id="dryWeight"></span>,
-                                    <span name="weightResult">pounds</span>
-                                </div>
+                        </div>
+                        <div class=" align-items-center res-label-font-size res-label-padding-md">
+                            <div id="weightOfCarbonNameId" class="res-label">Weight of carbon:</div>
+                            <div class="res-res">
+                                <span id="weightOfCarbon"></span>,
+                                <span name="weightResult">pounds</span>
                             </div>
-                            <!--                        d-flex-->
-                            <div class=" align-items-center res-label-font-size res-label-padding-md">
-                                <div id="weightOfCarbonNameId" class="res-label">Weight of carbon:</div>
-                                <div class="res-res">
-                                    <span id="weightOfCarbon"></span>,
-                                    <span name="weightResult">pounds</span>
-                                </div>
+                        </div>
+                        <div class="align-items-center res-label-font-size res-label-padding-md">
+                            <div id="weightOfCarbonDioxNameId" class="res-label">Weight of carbon dioxide
+                                sequestered:
                             </div>
-<!--                        </div>-->
-                        <!--                        d-flex-->
-<!--                        <div class="col-xs-12 col-md-7 col-lg-12">-->
-                            <div class="align-items-center res-label-font-size res-label-padding-md">
-                                <div id="weightOfCarbonDioxNameId" class="res-label">Weight of carbon dioxide
-                                    sequestered:
-                                </div>
-                                <div class="res-res">
-                                    <span id="weightOfCarbonDioxide"></span>,
-                                    <span name="weightResult">pounds</span>
-                                </div>
+                            <div class="res-res">
+                                <span id="weightOfCarbonDioxide"></span>,
+                                <span name="weightResult">pounds</span>
                             </div>
-                            <!--                        d-flex-->
-                            <div class="align-items-center res-label-font-size res-label-padding-md">
-                                <div id="weightOfCO2NameId" class="res-label">Weight of co2 sequestered per year:</div>
-                                <div class="res-res">
-                                    <span id="weightOfCO2"></span>,
-                                    <span name="weightResult">pounds</span>
-                                </div>
+                        </div>
+                        <div class="align-items-center res-label-font-size res-label-padding-md">
+                            <div id="weightOfCO2NameId" class="res-label">Weight of co2 sequestered per year:</div>
+                            <div class="res-res">
+                                <span id="weightOfCO2"></span>,
+                                <span name="weightResult">pounds</span>
                             </div>
-<!--                        </div>-->
-
-                        <!--                    <div>Dry weight: <span id="dryWeight"></span>, <span name="weightResult">pounds</span></div>-->
-                        <!--                    <div>Weight of carbon: <span id="weightOfCarbon"></span>, <span name="weightResult">pounds</span>-->
-                        <!--                    </div>-->
-                        <!--                    <div>Weight of carbon dioxide sequestered: <span id="weightOfCarbonDioxide"></span>, <span-->
-                        <!--                            name="weightResult">pounds</span></div>-->
-                        <!--                    <div>Weight of CO2 sequestered per year: <span id="weightOfCO2"></span>, <span name="weightResult">pounds</span>-->
-                        <!--                    </div>-->
+                        </div>
                     </div>
                 </div>
 
@@ -298,42 +281,41 @@
                             <img src="icons/Property%201=color.svg">
                         </div>
                         <div id="methodologyTextId" class="methodology-link-txt ">
-                            <span class="methodology-link-link-txt methodology-description-font-size">Data and calculation</span>
+                            <span class="methodology-link-link-txt methodology-description-font-size">
+                                <a class="methodology-link-link-txt methodology-description-font-size"
+                                   href="https://www.google.com/">Data and calculation</a></span>
                             methodology provided by
                             the World Agroforestry Centre's "Agroforestree Database and Trees for the Future.
                         </div>
                     </div>
-
-
                 </div>
             </div>
-
         </div>
 
         <!--        Ссылки на ресурсы -->
-        <div class="row links-background">
+        <div class="row links-background links-background-padding-md">
             <div class="outer-link">
                 <img id="utmnLogoId"
-                     src="utmn.svg"
-                     class="pointer link-opacity"
+                     src="logos/utmn.svg"
+                     class="pointer link-opacity link-width"
                      onclick="openUrl('https://www.utmn.ru/')">
             </div>
             <div class="outer-link">
                 <img id="carbonLogoId"
-                     src="carbon.svg"
-                     class="pointer link-opacity"
+                     src="logos/carbon.svg"
+                     class="pointer link-opacity link-width"
                      onclick="openUrl('https://carbon-polygons.ru/')">
             </div>
             <div class="outer-link">
                 <img id="siburLogoId"
-                     src="sibur2.svg"
-                     class="pointer link-opacity"
+                     src="logos/sibur.svg"
+                     class="pointer link-opacity link-width"
                      onclick="openUrl('https://sibur.ru')">
             </div>
             <div class="outer-link">
                 <img id="cityLogoId"
-                     src="cityLogo.svg"
-                     class="pointer link-opacity"
+                     src="logos/city.svg"
+                     class="pointer link-opacity link-width"
                      onclick="openUrl('https://admtyumen.ru/')">
             </div>
         </div>

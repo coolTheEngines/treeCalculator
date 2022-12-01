@@ -93,7 +93,7 @@ body {
 
 .calculator-name-padding-md {
   margin-top: 0px;
-  padding-top: 142px;
+  padding-top: 102px;
 }
 
 .main-body-padding-md {
@@ -311,9 +311,17 @@ body {
     margin-right: 0;
   }
 
+  .links-background-padding-md {
+    margin-right: -12px;
+  }
+
   .global-margin {
     padding-left: 42px;
     padding-right: 42px;
+  }
+
+  .link-width {
+    width: inherit;
   }
 }
 
@@ -345,17 +353,6 @@ body {
   .methodology-description-font-size {
     font-size: 12px ;
   }
-
-  /********
-
-
-
-
-
-  .translate-font-size {
-    font-size: 20px ;
-  }
-  *****/
 
   .left-group-padding-md {
     padding-right: 0px;
@@ -410,9 +407,22 @@ body {
     margin-right: 0;
   }
 
+  .links-background-padding-md {
+    margin-right: -12px;
+  }
+
   .global-margin {
     padding-left: 21px;
     padding-right: 21px;
+  }
+
+  .outer-link {
+    width: 201.29px;
+    height: 104px;
+  }
+
+  .link-width {
+    width: inherit;
   }
 }
 
@@ -574,7 +584,7 @@ body {
 }
 
 .parameter-type-active-line {
-  width: 92px;
+  /*width: 92px;*/
   height: 0px;
   left: 232px;
   top: 36px;
