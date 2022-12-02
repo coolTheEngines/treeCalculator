@@ -433,7 +433,7 @@ function translate() {
     } else {
         document.getElementById('methodologyTextId').innerHTML = "<span class=\"methodology-link-link-txt\">" +
             "<a class=\"methodology-link-link-txt\" href=\"https://www.unm.edu/~jbrink/365/Documents/Calculating_tree_carbon.pdf\">Данные и расчёт</a>" +
-            "</span> методология предоставлена\n" +
+            "</span> методологии предоставлены\n" +
             "                            всемирным центром агролесоводства \"База Данных Агролесоводства и Деревья Будущего\"";
 
         document.getElementById('methodologyLabelId').innerHTML = "Методология";
