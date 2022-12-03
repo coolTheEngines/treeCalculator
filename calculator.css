@@ -175,6 +175,16 @@ body {
   padding-right: 40px;
 }
 
+@media (min-width: 992px) {
+  .links-background-padding-md {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 48px;
+  }
+}
+
 @media (max-width: 1400px) {
   .calculator-name-padding-md {
     margin-top: 0px;
@@ -238,7 +248,7 @@ body {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .right-border-style-md {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -614,4 +624,33 @@ body {
   opacity: 0.2;
   display: inline-block;
 }
+
+.container1 {
+  /*width: 200px;*/
+  /*height: 600px;*/
+  /*background-color: blue;*/
+  position: absolute; /*Can also be `fixed`*/
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  /*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*/
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.child1 {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px; /* Apply negative top and left margins to truly center the element */
+}
+
+ /* first page style */
 

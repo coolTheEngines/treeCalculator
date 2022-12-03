@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tree carbon calculator</title>
+    <title>Carbon calculator</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -10,300 +10,123 @@
     <script src="calculator.js"></script>
 
 </head>
-<body>
-<!--<div class="header">-->
-<!--    <div class="frame13">-->
-<!--        <div class="translate-button">-->
-<!--            <div class="translate-button-txt">ENG</div>-->
-<!--            <span class="translate-button-line"></span>-->
-<!--        </div>-->
-<!--        <div class="translate-button">-->
-<!--            <div class="translate-button-txt">RUS</div>-->
-<!--&lt;!&ndash;            <span class="translate-button-line"></span>&ndash;&gt;-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<div class="frame64">-->
-<!--    <div class="frame59">-->
-<!--        <div class="calculator-name">-->
-<!--            CO2 absorption calculator-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="frame63">-->
-<!--        <div class="frame58">-->
-<!--            <div class="frame3">-->
-<!--                <div class="group2">-->
-
-<!--                    <div class="tree-parameters-name">-->
-<!--                        Tree parametrs-->
-<!--                    </div>-->
-<!--                    <div class="parameter-type-active">-->
-<!--                        meters-->
-<!--                    </div>-->
-<!--                    <div class="parameter-type-active-line">-->
-<!--                    </div>-->
-<!--                    <div class="parameter-type-passive">-->
-<!--                        feet-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="frame57">-->
-<!--            <div class="frame56">-->
-<!--                <div class="calc-form-base">-->
-<!--                    <div class="frame54">-->
-
-<!--                        <div class="frame48">-->
-<!--                            <div class="ico">-->
-<!--                                <div class="group1">-->
-<!--                                    <img src="Property%201=tree,%20Property%202=hight-1.svg">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                        <div class="frame52">-->
-<!--                            <div class="headline">-->
-<!--                                <div class="age-text">Hight</div>-->
-<!--                            </div>-->
-<!--                            <div class="frame51">-->
-
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="frame55">-->
-
-<!--            </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
-<section class="container" style="margin-left: 100px; margin-right: 100px; margin-top: 40px;">
-    <div class="container-fluid">
-<!--        <div class="row">-->
-<!--            <div class="frame13">-->
-<!--                <div class="translate-button">-->
-<!--                    <div class="translate-button-txt">ENG</div>-->
-<!--                    <span class="translate-button-line"></span>-->
-<!--                </div>-->
-<!--                <div class="translate-button">-->
-<!--                    <div class="translate-button-txt">RUS</div>-->
-<!--                    <span class="translate-button-line-inactive"></span>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+<body style="background: #f2f2f4;">
+<section class="container default section-border-top">
+    <div class="container-fluid mt-3 section">
         <div class="row" style="padding-top: 30px">
-            <div id="header">
-                <div class="calculator-name">CO2 absorption calculator</div>
+            <div style="width: 50%" id="header">
+                <!--                <h1>Calculator</h1>-->
             </div>
-            <!--            <div style="float: right; width: 50%">-->
-            <!--                <div style="width: 65px; float: right">-->
-            <!--                    <button type="button" onclick="changeMetricSystem()">metric</button>-->
-            <!--                </div>-->
-            <!--                <div style="width: 65px; float: right">-->
-            <!--                    <button type="button" onclick="changeLanguage()">lang</button>-->
-            <!--                </div>-->
-            <!--            </div>-->
+            <div style="float: right; width: 50%">
+                <div style="width: 65px; float: right">
+                    <button type="button" onclick="changeMetricSystem()">metric</button>
+                </div>
+                <div style="width: 65px; float: right">
+                    <button type="button" onclick="changeLanguage()">lang</button>
+                </div>
+            </div>
         </div>
-<!--        <div class="row">-->
-<!--            <div>-->
-<!--                <div style="padding-top: 60px">-->
-<!--                    <div class="tree-parameters-name">-->
-<!--                        Tree parameters-->
-<!--                    </div>-->
-<!--                    <div class="parameter-type-active">-->
-<!--                        meters-->
-<!--                        <div class="parameter-button-line"></div>-->
-<!--                    </div>-->
-<!--                    <div class="parameter-type-inactive">-->
-<!--                        feet-->
-<!--                    </div>-->
-<!--                </div>-->
+        <div class="row">
 
-<!--                &lt;!&ndash; тут будут поля ввода &ndash;&gt;-->
-<!--                <div>-->
-<!--                    &lt;!&ndash;                левые два верхних поля ввода &ndash;&gt;-->
-<!--                    <div>-->
-<!--                        &lt;!&ndash;   левое поле  &ndash;&gt;-->
-<!--                        <div class="left-field">-->
-<!--                            &lt;!&ndash;   иконка  &ndash;&gt;-->
-<!--                            <div class="circle-icon-grey" style="display: inline-block; float: left">-->
-<!--                                <img src="icons/Property%201=tree,%20Property%202=hight-1.svg">-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash;   поле ввода  &ndash;&gt;-->
-<!--                            <div style="display: inline-block; float: right">-->
-<!--                                <div class="label-input-field">-->
-<!--                                    Height-->
-<!--                                </div>-->
-<!--                                <div>-->
-<!--                                    <input type="number"-->
-<!--                                           placeholder="meters"-->
-<!--                                           min="5"-->
-<!--                                           max="116"-->
-<!--                                           value="5"-->
-<!--                                           step="0.01"-->
-<!--                                           class="input-field"-->
-<!--                                           oninput="onInputHeight(value)"-->
-<!--                                    >-->
-<!--                                </div>-->
-<!--                                <div>-->
-<!--                                    <input type="range"-->
-<!--                                           min="5"-->
-<!--                                           max="116"-->
-<!--                                           value="5"-->
-<!--                                           step="0.01"-->
-<!--                                           name="heightRange"-->
-<!--                                           class="custom-range"-->
-<!--                                           oninput="onInputHeightRange(value)">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
+            <div class="col-xs-12 col-sm-6 text-black p-3 calc"
+                 style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;" id="params">
 
-<!--                        <div>-->
-
-<!--                        </div>-->
-
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            &lt;!&ndash;            правая сторона &ndash;&gt;-->
-<!--            <div>-->
-
-<!--            </div>-->
-
-<!--            &lt;!&ndash;            <div class="col-xs-12 col-sm-6 text-black p-3 calc"&ndash;&gt;-->
-<!--            &lt;!&ndash;                 style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;" id="params">&ndash;&gt;-->
-
-<!--            &lt;!&ndash;                <h4>Tree params</h4>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <label for="height">Height, <span name="heightParam">feet</span></label><br>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <div class="d-flex align-items-center mt-2 mt-md-0">&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <input type="number"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               min="5"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               max="116"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               value="5"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               step="0.01"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               id="height"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               class="form-control"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               oninput="onInputHeight(value)"&ndash;&gt;-->
-<!--            &lt;!&ndash;                        >&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div style="padding-left: 1rem; flex: 1">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <input type="range"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   min="5"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   max="116"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   value="5"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   step="0.01"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   id="heightRange"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   name="heightRange"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   class="custom-range"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   oninput="onInputHeightRange(value)">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="range-marks d-flex">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="range-mark-min">5</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="range-mark-max flex-grow text-right w-100">116</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <label for="diameter">Diameter, <span name="diameterParam">inches</span></label><br>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <div class="d-flex align-items-center mt-2 mt-md-0">&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <input type="number"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               min="0.25"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               max="4.84"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               value="0.25"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               step="0.01"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               id="diameter"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               class="form-control"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               oninput="onInputDiameter(value)"&ndash;&gt;-->
-<!--            &lt;!&ndash;                        >&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div style="padding-left: 1rem; flex: 1">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <input type="range"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   min="0.25"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   max="4.84"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   value="0.25"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   step="0.01"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   id="diameterRange"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   name="diameterRange"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   class="custom-range"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   oninput="onInputDiameterRange(value)">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="range-marks d-flex">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="range-mark-min">0.25</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="range-mark-max flex-grow text-right w-100">4.84</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <label for="age">Age, <span name="ageParam">years</span></label><br>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <div class="d-flex align-items-center mt-2 mt-md-0">&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <input type="number"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               min="2"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               max="500"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               value="2"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               id="age"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               class="form-control"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               oninput="onInputAge(value)"&ndash;&gt;-->
-<!--            &lt;!&ndash;                        >&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div style="padding-left: 1rem; flex: 1">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <input type="range"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   min="2"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   max="500"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   value="2"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   id="diameterAge"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   name="diameterAge"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   class="custom-range"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   oninput="onInputAgeRange(value)">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="range-marks d-flex">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="range-mark-min">2</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="range-mark-max flex-grow text-right w-100">500</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <label for="treeCount"><span name="treeCountName">Tree number</span></label><br>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <div class="d-flex align-items-center mt-2 mt-md-0">&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <input type="number"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               min="1"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               max="10000"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               id="treeCount"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               class="form-control"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               value="1"&ndash;&gt;-->
-<!--            &lt;!&ndash;                               oninput="onInputTreeCount(value)">&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div style="padding-left: 1rem; flex: 1">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <input type="range"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   min="1"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   max="10000"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   value="1"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   id="treeCountRange"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   name="treeCountRange"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   class="custom-range"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                   oninput="onInputTreeCountRange(value)">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="range-marks d-flex">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="range-mark-min">1</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="range-mark-max flex-grow text-right w-100">10000</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;            &ndash;&gt;-->
-<!--            &lt;!&ndash;            &ndash;&gt;-->
-<!--            &lt;!&ndash;            &lt;!&ndash;            <div id="results">&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;            <div class="col-xs-12 col-sm-6 p-3 calc"&ndash;&gt;-->
-<!--            &lt;!&ndash;                 style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;" id="results">&ndash;&gt;-->
-<!--            &lt;!&ndash;                &lt;!&ndash;                    <h4>Tree results:</h4>&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                &lt;!&ndash;                    <div>Green weight: <span id="greenWeight"></span>, pounds</div>&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                &lt;!&ndash;                    <div>Dry weight: <span id="dryWeight"></span>, pounds</div>&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                &lt;!&ndash;                    <div>Weight of carbon: <span id="weightOfCarbon"></span>, pounds</div>&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                &lt;!&ndash;                    <div>Weight of carbon dioxide sequestered: <span id="weightOfCarbonDioxide"></span>, pounds</div>&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                &lt;!&ndash;                    <div>Weight of CO2 sequestered per year: <span id="weightOfCO2"></span>, pounds</div>&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--        </div>-->
+                                <h4>Tree params</h4>
+                                <div>
+                                    <label for="height">Height, <span>feet</span></label><br>
+                                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                                        <input type="number"
+                                               min="5"
+                                               max="116"
+                                               step="0.01"
+                                               id="height"
+                                               class="form-control"
+                                               value="5"
+                                               oninput="onInputHeight(value)"
+                                        >
+                                        <div style="padding-left: 1rem; flex: 1">
+                                            <input type="range"
+                                                   min="5"
+                                                   max="116"
+                                                   step="0.01"
+                                                   id="heightRange"
+                                                   name="heightRange"
+                                                   class="custom-range"
+                                                   oninput="onInputHeightRange(value)">
+                                            <div class="range-marks d-flex">
+                                                <div class="range-mark-min">5</div>
+                                                <div class="range-mark-max flex-grow text-right w-100">116</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="diameter">Diameter, inches</label><br>
+                                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                                        <input type="number"
+                                               min="0.25"
+                                               max="4.84"
+                                               step="0.01"
+                                               id="diameter"
+                                               class="form-control"
+                                               value="0.25"
+                                               oninput="onInputDiameter(value)"
+                                        >
+                                        <div style="padding-left: 1rem; flex: 1">
+                                            <input type="range"
+                                                   min="0.25"
+                                                   max="4.84"
+                                                   step="0.01"
+                                                   id="diameterRange"
+                                                   name="diameterRange"
+                                                   class="custom-range"
+                                                   oninput="onInputDiameterRange(value)">
+                                            <div class="range-marks d-flex">
+                                                <div class="range-mark-min">0.25</div>
+                                                <div class="range-mark-max flex-grow text-right w-100">4.84</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="age">Age, years</label><br>
+                                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                                        <input type="number"
+                                               min="2"
+                                               max="500"
+                                               id="age"
+                                               class="form-control"
+                                               value="2"
+                                               oninput="onInputAge(value)"
+                                        >
+                                        <div style="padding-left: 1rem; flex: 1">
+                                            <input type="range"
+                                                   min="2"
+                                                   max="500"
+                                                   id="diameterAge"
+                                                   name="diameterAge"
+                                                   class="custom-range"
+                                                   oninput="onInputAgeRange(value)">
+                                            <div class="range-marks d-flex">
+                                                <div class="range-mark-min">2</div>
+                                                <div class="range-mark-max flex-grow text-right w-100">500</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            </div>
+                        <div id="results">
+            <div class="col-xs-12 col-sm-6 p-3 calc"
+                 style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;" id="results">
+                                    <h4>Tree results:</h4>
+                                    <div>Green weight: <span id="greenWeight"></span>, pounds</div>
+                                    <div>Dry weight: <span id="dryWeight"></span>, pounds</div>
+                                    <div>Weight of carbon: <span id="weightOfCarbon"></span>, pounds</div>
+                                    <div>Weight of carbon dioxide sequestered: <span id="weightOfCarbonDioxide"></span>, pounds</div>
+                                    <div>Weight of CO2 sequestered per year: <span id="weightOfCO2"></span>, pounds</div>
+            </div>
+                        </div>
+        </div>
         <div class="row" style="justify-content: space-evenly; padding-top: 30px">
             <img src="utmn_rus.png"
                  style="width: 17%"
