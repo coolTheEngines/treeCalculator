@@ -1,6 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     cssStyleListener();
+    onMouseOverPartnerLogo();
 });
 
 function cssStyleListener() {
@@ -94,4 +95,36 @@ function translate() {
     }
     // changeMetricNaming();
     // inputBackgroundUpdate();
+}
+
+function onMouseOverPartnerLogo() {
+    let utmnLogo = document.getElementById("utmnLogoId");
+    let carbonLogo = document.getElementById("carbonLogoId");
+    let siburLogo = document.getElementById("siburLogoId");
+    let cityLogo = document.getElementById("cityLogoId");
+
+    utmnLogo.onmouseover = function () {
+        utmnLogo.style.opacity = "1";
+    }
+    utmnLogo.onmouseout = function () {
+        utmnLogo.style.opacity = "0.5";
+    }
+    carbonLogo.onmouseover = function () {
+        carbonLogo.style.opacity = "1";
+    }
+    carbonLogo.onmouseout = function () {
+        carbonLogo.style.opacity = "0.5";
+    }
+    siburLogo.onmouseover = function () {
+        siburLogo.style.opacity = "1";
+    }
+    siburLogo.onmouseout = function () {
+        siburLogo.style.opacity = "0.5";
+    }
+    cityLogo.onmouseover = function () {
+        cityLogo.style.opacity = "1";
+    }
+    cityLogo.onmouseout = function () {
+        cityLogo.style.opacity = "0.5";
+    }
 }
