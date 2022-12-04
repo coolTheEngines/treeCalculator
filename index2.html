@@ -1,154 +1,328 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="global-height">
 <head>
     <title>Carbon calculator</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="calculator.css">
+    <link rel="icon" href="logos/main.svg">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="calculator.js"></script>
 
 </head>
-<body style="background: #f2f2f4;">
-<section class="container default section-border-top">
-    <div class="container-fluid mt-3 section">
-        <div class="row" style="padding-top: 30px">
-            <div style="width: 50%" id="header">
-                <!--                <h1>Calculator</h1>-->
+<body class="background background-color">
+
+<section class="container-fluid global-margin">
+    <div>
+        <div class="d-flex align-items-center eng-block-padding-md">
+            <div style="padding-right: 24px;">
+                    <div class="lang-button-active pointer translate-font-size" id="engName"
+                         onclick="changeLanguage('EN')">
+                        ENG
+                    </div>
+                    <div class="lang-button-active-line" id="engLine"></div>
             </div>
-            <div style="float: right; width: 50%">
-                <div style="width: 65px; float: right">
-                    <button type="button" onclick="changeMetricSystem()">metric</button>
+            <div>
+                <div class="lang-button-inactive pointer translate-font-size" id="rusName"
+                     onclick="changeLanguage('RU')">RUS
                 </div>
-                <div style="width: 65px; float: right">
-                    <button type="button" onclick="changeLanguage()">lang</button>
-                </div>
+                <div class="lang-button-inactive-line" id="rusLine"></div>
             </div>
         </div>
+    </div>
+
+
+    <div class="container-fluid section calculator-name-padding-md">
+        <!--        Заголовок   -->
         <div class="row">
-
-            <div class="col-xs-12 col-sm-6 text-black p-3 calc"
-                 style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;" id="params">
-
-                                <h4>Tree params</h4>
-                                <div>
-                                    <label for="height">Height, <span>feet</span></label><br>
-                                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <input type="number"
-                                               min="5"
-                                               max="116"
-                                               step="0.01"
-                                               id="height"
-                                               class="form-control"
-                                               value="5"
-                                               oninput="onInputHeight(value)"
-                                        >
-                                        <div style="padding-left: 1rem; flex: 1">
-                                            <input type="range"
-                                                   min="5"
-                                                   max="116"
-                                                   step="0.01"
-                                                   id="heightRange"
-                                                   name="heightRange"
-                                                   class="custom-range"
-                                                   oninput="onInputHeightRange(value)">
-                                            <div class="range-marks d-flex">
-                                                <div class="range-mark-min">5</div>
-                                                <div class="range-mark-max flex-grow text-right w-100">116</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="diameter">Diameter, inches</label><br>
-                                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <input type="number"
-                                               min="0.25"
-                                               max="4.84"
-                                               step="0.01"
-                                               id="diameter"
-                                               class="form-control"
-                                               value="0.25"
-                                               oninput="onInputDiameter(value)"
-                                        >
-                                        <div style="padding-left: 1rem; flex: 1">
-                                            <input type="range"
-                                                   min="0.25"
-                                                   max="4.84"
-                                                   step="0.01"
-                                                   id="diameterRange"
-                                                   name="diameterRange"
-                                                   class="custom-range"
-                                                   oninput="onInputDiameterRange(value)">
-                                            <div class="range-marks d-flex">
-                                                <div class="range-mark-min">0.25</div>
-                                                <div class="range-mark-max flex-grow text-right w-100">4.84</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="age">Age, years</label><br>
-                                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <input type="number"
-                                               min="2"
-                                               max="500"
-                                               id="age"
-                                               class="form-control"
-                                               value="2"
-                                               oninput="onInputAge(value)"
-                                        >
-                                        <div style="padding-left: 1rem; flex: 1">
-                                            <input type="range"
-                                                   min="2"
-                                                   max="500"
-                                                   id="diameterAge"
-                                                   name="diameterAge"
-                                                   class="custom-range"
-                                                   oninput="onInputAgeRange(value)">
-                                            <div class="range-marks d-flex">
-                                                <div class="range-mark-min">2</div>
-                                                <div class="range-mark-max flex-grow text-right w-100">500</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            <div id="header">
+                <div id="CO2absCalcNameId" class="calculator-name co2-header-font-size">co2 absorption calculator</div>
             </div>
-                        <div id="results">
-            <div class="col-xs-12 col-sm-6 p-3 calc"
-                 style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;" id="results">
-                                    <h4>Tree results:</h4>
-                                    <div>Green weight: <span id="greenWeight"></span>, pounds</div>
-                                    <div>Dry weight: <span id="dryWeight"></span>, pounds</div>
-                                    <div>Weight of carbon: <span id="weightOfCarbon"></span>, pounds</div>
-                                    <div>Weight of carbon dioxide sequestered: <span id="weightOfCarbonDioxide"></span>, pounds</div>
-                                    <div>Weight of CO2 sequestered per year: <span id="weightOfCO2"></span>, pounds</div>
-            </div>
-                        </div>
         </div>
-        <div class="row" style="justify-content: space-evenly; padding-top: 30px">
-            <img src="utmn_rus.png"
-                 style="width: 17%"
-                 class="pointer"
-                 onclick="openUrl('https://www.utmn.ru/')">
-            <img src="carbon-logo.svg"
-                 style="width: 20%"
-                 class="pointer"
-                 onclick="openUrl('https://carbon-polygons.ru/')">
-            <img src="sibur.svg"
-                 style="width: 20%"
-                 class="pointer"
-                 onclick="openUrl('https://sibur.ru')">
-            <img src="tyumen_oblast.svg"
-                 style="width: 20%"
-                 class="pointer"
-                 onclick="openUrl('https://admtyumen.ru/')">
+        <div class="row main-body-padding-md">
+
+            <!--                Left part INPUTS !!!!!!!!!!!!!!!!!!!!!!!   -->
+
+            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-7 left-group-padding-md" id="params">
+
+                <div class="d-flex align-items-center params-result-font-size">
+                    <div id="treeParametersLabelId" class="tree-parameters-name params-result-font-size"
+                         style="padding-right: 24px">Tree parameters
+                    </div>
+                    <div style="padding-right: 11px">
+                        <div id="metersLabelId" class="parameter-type-active pointer params-result-font-size"
+                             onclick="changeMetricSystem('metricEU')"><div>meters</div>
+                        </div>
+                        <div id="metersLabelLineId" class="parameter-type-active-line"></div>
+                    </div>
+                    <div>
+                        <div id="feetLabelId" class="parameter-type-inactive pointer params-result-font-size"
+                             onclick="changeMetricSystem('metricUK')">feet
+                        </div>
+                        <div id="feetLabelLineId" class=""></div>
+                    </div>
+                </div>
+
+                <div class="row left-upper-row-padding-md">
+                    <div class="col-xs-12 col-sm-12 col-md-6 input-group-padding">
+                        <div class="left-field d-flex align-items-center mt-md-0">
+                            <!--   иконка  -->
+                            <div class="circle-icon-grey">
+                                <img id="heightImgId" src="icons/Property%201=tree,%20Property%202=height-1.svg">
+                            </div>
+                            <!--   поле ввода  -->
+                            <div style="width: 100%">
+                                <div class="label-input-field input-label-font-size">
+                                    Height
+                                </div>
+                                <div>
+                                    <input id="height"
+                                           type="number"
+                                           placeholder="meters"
+                                           min="5"
+                                           max="116"
+                                           value="5"
+                                           step="0.01"
+                                           class="input-field form-control"
+                                           oninput="onInputHeight(value)"
+                                    >
+                                </div>
+                                <div>
+                                    <input id="heightRange"
+                                           type="range"
+                                           min="5"
+                                           max="116"
+                                           value="5"
+                                           step="0.01"
+                                           name="heightRange"
+                                           class="custom-range"
+                                           oninput="onInputHeightRange(value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 input-group-padding">
+                        <div class="d-flex align-items-center mt-2 mt-md-0">
+                            <!--   иконка  -->
+                            <div class="circle-icon-grey">
+                                <img id="diameterImgId" src="icons/Property%201=tree,%20Property%202=diameter-1.svg">
+                            </div>
+                            <!--   поле ввода  -->
+                            <div style="width: 100%">
+                                <div class="label-input-field input-label-font-size">
+                                    Diameter
+                                </div>
+                                <div>
+                                    <input id="diameter"
+                                           type="number"
+                                           placeholder="meters"
+                                           min="0.25"
+                                           max="4.84"
+                                           value="0.25"
+                                           step="0.01"
+                                           class="input-field form-control"
+                                           oninput="onInputDiameter(value)"
+                                    >
+                                </div>
+                                <div>
+                                    <input id="diameterRange" type="range"
+                                           min="0.25"
+                                           max="4.84"
+                                           value="0.25"
+                                           step="0.01"
+                                           name="heightRange"
+                                           class="custom-range"
+                                           oninput="onInputDiameterRange(value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 input-group-padding">
+                        <div class="left-field d-flex align-items-center mt-2 mt-md-0">
+                            <!--   иконка  -->
+                            <div class="circle-icon-grey">
+                                <img id="ageImgId" src="icons/Property%201=tree,%20Property%202=age-1.svg">
+                            </div>
+                            <!--   поле ввода  -->
+                            <div style="width: 100%">
+                                <div class="label-input-field input-label-font-size">
+                                    Age
+                                </div>
+                                <div>
+                                    <input id="age" type="number"
+                                           placeholder="meters"
+                                           min="2"
+                                           max="500"
+                                           value="2"
+                                           class="input-field form-control"
+                                           oninput="onInputAge(value)"
+                                    >
+                                </div>
+                                <div>
+                                    <input id="ageRange"
+                                           type="range"
+                                           min="2"
+                                           max="500"
+                                           value="2"
+                                           name="heightRange"
+                                           class="custom-range"
+                                           oninput="onInputAgeRange(value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 input-group-padding">
+                        <div class="left-field d-flex align-items-center mt-2 mt-md-0">
+                            <!--   иконка  -->
+                            <div class="circle-icon-grey">
+                                <img id="numbersImgId" src="icons/Property%201=tree,%20Property%202=numbers-1.svg">
+                            </div>
+                            <!--   поле ввода  -->
+                            <div style="width: 100%">
+                                <div class="label-input-field input-label-font-size">
+                                    Number
+                                </div>
+                                <div>
+                                    <input id="treeCount"
+                                           type="number"
+                                           placeholder="meters"
+                                           min="1"
+                                           max="1000"
+                                           value="1"
+                                           class="input-field form-control"
+                                           oninput="onInputTreeCount(value)"
+                                    >
+                                </div>
+                                <div>
+                                    <input id="treeCountRange"
+                                           type="range"
+                                           min="1"
+                                           max="1000"
+                                           value="1"
+                                           class="custom-range"
+                                           oninput="onInputTreeCountRange(value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--                Right part RESULTS !!!!!!!!!!!!!!!!!!!!!!!   -->
+
+            <div class="col-xs-12 col-md-12 col-lg-5 col-xl-5 right-border-style-md"
+                 id="results">
+
+                <!--                Results           -->
+                <div class="right-res-padding-md">
+                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                        <div id="resultsNameId" class="tree-parameters-name params-result-font-size"
+                             style="padding-right: 24px">Results:
+                        </div>
+                    </div>
+
+                    <div class="row right-res-res-padding-md">
+                        <div class="align-items-center res-label-font-size res-label-padding-md">
+                            <div id="greenWeightNameId" class="res-label ">Green weight:</div>
+                            <div class="res-res">
+                                <span id="greenWeight"></span>,
+                                <span name="weightResult">pounds</span>
+                            </div>
+                        </div>
+                        <!--                        d-flex-->
+                        <div class="align-items-center res-label-font-size res-label-padding-md">
+                            <div id="dryWeightNameId" class="res-label">Dry weight:</div>
+                            <div class="res-res">
+                                <span id="dryWeight"></span>,
+                                <span name="weightResult">pounds</span>
+                            </div>
+                        </div>
+                        <div class=" align-items-center res-label-font-size res-label-padding-md">
+                            <div id="weightOfCarbonNameId" class="res-label">Weight of carbon:</div>
+                            <div class="res-res">
+                                <span id="weightOfCarbon"></span>,
+                                <span name="weightResult">pounds</span>
+                            </div>
+                        </div>
+                        <div class="align-items-center res-label-font-size res-label-padding-md">
+                            <div id="weightOfCarbonDioxNameId" class="res-label">Weight of carbon dioxide
+                                sequestered:
+                            </div>
+                            <div class="res-res">
+                                <span id="weightOfCarbonDioxide"></span>,
+                                <span name="weightResult">pounds</span>
+                            </div>
+                        </div>
+                        <div class="align-items-center res-label-font-size res-label-padding-md">
+                            <div id="weightOfCO2NameId" class="res-label">Weight of co2 sequestered per year:</div>
+                            <div class="res-res">
+                                <span id="weightOfCO2"></span>,
+                                <span name="weightResult">pounds</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--                Methodology           -->
+
+                <div class="methodology-left-padding-md">
+                    <div class="d-flex align-items-center ">
+                        <div id="methodologyLabelId" class="methodology-name methodology-font-size"
+                             style="padding-top: 24px">Methodology:
+                        </div>
+                    </div>
+
+                    <div class="methodology-group d-flex align-items-center">
+                        <div>
+                            <img src="icons/Property%201=color.svg">
+                        </div>
+                        <div id="methodologyTextId" class="methodology-link-txt ">
+                            <span class="methodology-link-link-txt methodology-description-font-size">
+                                <a class="methodology-link-link-txt methodology-description-font-size"
+                                   href="https://www.google.com/">Data and calculation</a></span>
+                            methodology provided by
+                            the World Agroforestry Centre's "Agroforestree Database and Trees for the Future.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        Ссылки на ресурсы -->
+        <div class="row links-background links-background-padding-md">
+            <div class="outer-link">
+                <img id="utmnLogoId"
+                     src="logos/utmn.svg"
+                     class="pointer link-opacity link-width"
+                     onclick="openUrl('https://www.utmn.ru/')">
+            </div>
+            <div class="outer-link">
+                <img id="carbonLogoId"
+                     src="logos/carbon.svg"
+                     class="pointer link-opacity link-width"
+                     onclick="openUrl('https://carbon-polygons.ru/')">
+            </div>
+            <div class="outer-link">
+                <img id="siburLogoId"
+                     src="logos/sibur.svg"
+                     class="pointer link-opacity link-width"
+                     onclick="openUrl('https://sibur.ru')">
+            </div>
+            <div class="outer-link">
+                <img id="cityLogoId"
+                     src="logos/city.svg"
+                     class="pointer link-opacity link-width"
+                     onclick="openUrl('https://admtyumen.ru/')">
+            </div>
         </div>
     </div>
 </section>
-<section class="container default section-border-top">
+<!--<section class="container default section-border-top">-->
 
-</section>
+<!--</section>-->
 </body>
 </html>

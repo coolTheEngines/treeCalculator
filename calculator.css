@@ -175,16 +175,6 @@ body {
   padding-right: 40px;
 }
 
-@media (min-width: 992px) {
-  .links-background-padding-md {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    margin-bottom: 48px;
-  }
-}
-
 @media (max-width: 1400px) {
   .calculator-name-padding-md {
     margin-top: 0px;
@@ -248,7 +238,53 @@ body {
   }
 }
 
+@media (min-width: 992px) {
+  /*.links-background-padding-md {*/
+  /*  position: fixed;*/
+  /*  left: 0;*/
+  /*  bottom: 0;*/
+  /*  width: 100%;*/
+  /*  margin-bottom: 48px;*/
+  /*}*/
+
+  /*.container1 {*/
+  /*  !*width: 200px;*!*/
+  /*  !*height: 600px;*!*/
+  /*  !*background-color: blue;*!*/
+  /*  position: absolute; !*Can also be `fixed`*!*/
+  /*  left: 0;*/
+  /*  right: 0;*/
+  /*  top: 0;*/
+  /*  bottom: 0;*/
+  /*  margin: auto;*/
+  /*  !*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*!*/
+  /*  max-width: 100%;*/
+  /*  max-height: 100%;*/
+  /*  overflow: auto;*/
+  /*}*/
+
+  /*.whole-block {*/
+  /*  display: flex;*/
+  /*  align-items: center;*/
+  /*  justify-content: center;*/
+  /*}*/
+
+  /*.right-block-border {*/
+  /*  border-left: 2px solid #909090;*/
+  /*}*/
+}
+
 @media (max-width: 991px) {
+  /*.main-logo-size {*/
+  /*  width: 99px !important;*/
+  /*  height: 69px !important;*/
+  /*}*/
+
+  /*.main-name-size {*/
+  /*  width: 216px;*/
+  /*  height: 38px;*/
+  /*}*/
+
   .right-border-style-md {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -264,6 +300,28 @@ body {
   .main-body-padding-md {
     padding-top: 47px;
   }
+
+  /*.container1 {*/
+  /*  !*width: 200px;*!*/
+  /*  !*height: 600px;*!*/
+  /*  !*background-color: blue;*!*/
+  /*  position: absolute; !*Can also be `fixed`*!*/
+  /*  left: 0;*/
+  /*  right: 0;*/
+  /*  top: 0;*/
+  /*  bottom: 0;*/
+  /*  margin: auto;*/
+  /*  !*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*!*/
+  /*  max-width: 100%;*/
+  /*  max-height: 100%;*/
+  /*  overflow: auto;*/
+  /*}*/
+
+  /*.whole-block {*/
+  /*  display: flex;*/
+  /*  align-items: center;*/
+  /*  justify-content: center;*/
+  /*}*/
 
 }
 
@@ -333,6 +391,30 @@ body {
   .link-width {
     width: inherit;
   }
+
+  /*.main-logo-align {*/
+  /*  text-align: center;*/
+  /*}*/
+
+  /*.main-logo-name-align {*/
+  /*  text-align: center;*/
+  /*}*/
+
+  /*.calculator-button-align {*/
+  /*  !*width: 200px;*!*/
+  /*  !*height: 600px;*!*/
+  /*  !*background-color: blue;*!*/
+  /*  !*position: absolute; !*Can also be `fixed`*!*!*/
+  /*  left: 0;*/
+  /*  right: 0;*/
+  /*  top: 0;*/
+  /*  bottom: 0;*/
+  /*  margin: auto;*/
+  /*  !*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*!*/
+  /*  max-width: 100%;*/
+  /*  max-height: 100%;*/
+  /*  overflow: auto;*/
+  /*}*/
 }
 
 @media (max-width: 580px) {
@@ -434,6 +516,42 @@ body {
   .link-width {
     width: inherit;
   }
+
+  /*.right-block-border {*/
+  /*  border-left: none;*/
+  /*}*/
+
+  /*.main-logo-align {*/
+  /*  text-align: center;*/
+  /*}*/
+
+  /*.main-logo-name-align {*/
+  /*  text-align: center;*/
+  /*}*/
+
+  /*.calculator-button-align {*/
+  /*  !*width: 200px;*!*/
+  /*  !*height: 600px;*!*/
+  /*  !*background-color: blue;*!*/
+  /*  !*position: absolute; !*Can also be `fixed`*!*!*/
+  /*  left: 0;*/
+  /*  right: 0;*/
+  /*  top: 0;*/
+  /*  bottom: 0;*/
+  /*  margin: auto;*/
+  /*  !*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*!*/
+  /*  max-width: 100%;*/
+  /*  max-height: 100%;*/
+  /*  overflow: auto;*/
+  /*}*/
+
+  /*.calculator-button-padding {*/
+  /*  padding-top: 0px !important;*/
+  /*}*/
+}
+
+.calculator-button-padding {
+  padding-top: 50px;
 }
 
 .lang-button-active {
@@ -625,32 +743,81 @@ body {
   display: inline-block;
 }
 
-.container1 {
-  /*width: 200px;*/
-  /*height: 600px;*/
-  /*background-color: blue;*/
-  position: absolute; /*Can also be `fixed`*/
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  /*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*/
-  max-width: 100%;
-  max-height: 100%;
-  overflow: auto;
-}
-
-.child1 {
-  width: 50px;
-  height: 50px;
-  background-color: red;
-  /* Center vertically and horizontally */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -25px 0 0 -25px; /* Apply negative top and left margins to truly center the element */
-}
 
  /* first page style */
 
+/*.metric-system-font {*/
+/*  font-family: 'Onest';*/
+/*  font-style: normal;*/
+/*  font-weight: 500;*/
+/*  font-size: 22px;*/
+/*  line-height: 90%;*/
+/*  color: #174735;*/
+
+/*  padding-top: 21px;*/
+/*}*/
+
+/*.main-logo-size {*/
+/*  width: 124px;*/
+/*  height: 86px;*/
+/*}*/
+
+/*.main-name-size {*/
+/*  width: 216px;*/
+/*  height: 38px;*/
+/*}*/
+
+/*.calculator-button {*/
+/*  background: #36BF7D;*/
+/*  border-radius: 40px;*/
+/*  width: 216px;*/
+/*  height: 48px;*/
+
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  padding: 13px 63px;*/
+
+/*  font-family: 'Onest';*/
+/*  font-style: normal;*/
+/*  font-weight: 500;*/
+/*  font-size: 20px;*/
+/*  line-height: 90%;*/
+/*  color: #FFFFFF;"*/
+
+/*  cursor: pointer;*/
+/*}*/
+
+/*.calculator-button:hover {*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.calculator-button-line {*/
+/*  border: 1px solid rgba(255, 255, 255, 0.5); width: 88px;*/
+/*  height: 0px;*/
+/*}*/
+
+/*.right-words-header {*/
+/*  font-family: 'Onest';*/
+/*  font-style: normal;*/
+/*  font-weight: 700;*/
+/*  font-size: 32px;*/
+/*  color: #36BF7D;*/
+/*}*/
+
+/*.right-words {*/
+/*  font-family: 'Onest';*/
+/*  font-style: normal;*/
+/*  font-weight: 400;*/
+/*  font-size: 18px;*/
+/*  color: #919191;*/
+/*  padding-top: 24px*/
+/*}*/
+
+/*.right-words-link {*/
+/*  text-decoration-line: underline;*/
+/*  color: #36BF7D;*/
+/*}*/
+
+/*.right-words-link:hover {*/
+/*  cursor: pointer !important;*/
+/*}*/
