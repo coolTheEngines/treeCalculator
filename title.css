@@ -140,7 +140,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .links-background-padding-md {
         position: fixed;
         left: 0;
@@ -174,7 +174,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .right-block-title-padding-md {
         padding-top: 80px;
     }
@@ -204,7 +204,7 @@
         /*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*/
         max-width: 100%;
         max-height: 100%;
-        overflow: auto;
+        /*overflow: auto;*/
     }
 
     .calculator-button-padding {
@@ -245,7 +245,7 @@
         margin: auto;
         max-width: 100%;
         max-height: 100%;
-        overflow: auto;
+        /*overflow: auto;*/
     }
 
     .calculator-button-padding {

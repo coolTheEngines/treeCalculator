@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-xs-9 col-md-8 col-xl-9 main-logo-name-align main-logo-name-padding-md">
                             <img src="logos/mainName.svg" class="main-name-size">
-                            <div class="metric-system-font">
+                            <div id="metricSystemId" class="metric-system-font">
                                 Metric system
                             </div>
                         </div>
@@ -58,9 +58,9 @@
                         <div class="col-xs-3 col-md-4 col-xl-3">
                         </div>
                         <div class="col-xs-9 col-md-8 col-xl-9">
-                            <div class="calculator-button calculator-button-align" onclick="openCalcPage()">
-                                <div>Calculate</div>
-                                <div class="calculator-button-line">
+                            <div id="calcBtnBack" class="calculator-button calculator-button-align" onclick="openCalcPage()">
+                                <div id="calculateName">Calculate</div>
+                                <div id="calcBtnLine" class="calculator-button-line">
                                 </div>
 
 
@@ -69,16 +69,20 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-6 right-block-border right-block-title-padding-md">
-                    <div class="right-words-header right-text-header-title-font-size">
-                        UN IPCC co2 absorption calculator
+                    <div id="unipccText" class="right-words-header right-text-header-title-font-size">
+                        UN IPCC CO&#8322; absorption calculator
                     </div>
                     <div class="right-words right-text-title-font-size">
-                        <div>
-                            We at Trees for the Future estimate that our agroforestry trees, planted in tropical
+                        <div id="unipccTextDescription1">
+                            We at Trees for the
+                            <a href="https://trees.org/" class="right-words-link">Future</a>
+                            estimate that our
+                            <a href="https://www.fao.org/forestry/agroforestry/80338/en/#:~:text=Definition,spatial%20arrangement%20or%20temporal%20sequence" class="right-words-link">agroforestry trees</a>
+                            , planted in tropical
                             climates, will sequester atmospheric carbon dioxide at an average of 50 pounds of carbon
                             dioxide per tree per year.
                         </div>
-                        <div style="padding-top: 16px">
+                        <div id="unipccTextDescription2" style="padding-top: 16px">
                             You can <a onclick="openCalcPage()"
                                        class="right-words-link">calculate</a> the amount of carbon dioxide that can be
                             absorbed by

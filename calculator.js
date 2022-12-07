@@ -421,14 +421,14 @@ function translate() {
         document.getElementById('metersLabelId').innerHTML = "meters";
         document.getElementById('feetLabelId').innerHTML = "feet";
 
-        document.getElementById('CO2absCalcNameId').innerHTML = "co2 absorption calculator";
+        document.getElementById('CO2absCalcNameId').innerHTML = "CO&#8322; absorption calculator";
 
         document.getElementById('resultsNameId').innerHTML = "Results:";
         document.getElementById('greenWeightNameId').innerHTML = "Green Weight:";
         document.getElementById('dryWeightNameId').innerHTML = "Dry weight:";
         document.getElementById('weightOfCarbonNameId').innerHTML = "Weight of carbon:";
         document.getElementById('weightOfCarbonDioxNameId').innerHTML = "Weight of carbon dioxide sequestered:";
-        document.getElementById('weightOfCO2NameId').innerHTML = "Weight of co2 sequestered per year:";
+        document.getElementById('weightOfCO2NameId').innerHTML = "Weight of CO&#8322; sequestered per year:";
 
     } else {
         document.getElementById('methodologyTextId').innerHTML = "<span class=\"methodology-link-link-txt\">" +
@@ -442,14 +442,14 @@ function translate() {
         document.getElementById('metersLabelId').innerHTML = "метры";
         document.getElementById('feetLabelId').innerHTML = "футы";
 
-        document.getElementById('CO2absCalcNameId').innerHTML = "Калькулятор поглощения co2";
+        document.getElementById('CO2absCalcNameId').innerHTML = "Калькулятор поглощения CO&#8322;";
 
         document.getElementById('resultsNameId').innerHTML = "Результаты:";
         document.getElementById('greenWeightNameId').innerHTML = "Зеленый вес:";
         document.getElementById('dryWeightNameId').innerHTML = "Сухой вес:";
         document.getElementById('weightOfCarbonNameId').innerHTML = "Вес углекислого газа:";
         document.getElementById('weightOfCarbonDioxNameId').innerHTML = "Вес выделенного углекислого газа:";
-        document.getElementById('weightOfCO2NameId').innerHTML = "Вес СО2, секвестрированного за год:";
+        document.getElementById('weightOfCO2NameId').innerHTML = "Вес CO&#8322; секвестрированного за год:";
     }
     changeMetricNaming();
     inputBackgroundUpdate();
@@ -464,7 +464,7 @@ function inputBackgroundUpdate() {
 
     let metersRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">метры</text></svg>\') no-repeat;';
     let feetRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">футы</text></svg>\') no-repeat;';
-    let inchesRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">инчи</text></svg>\') no-repeat;';
+    let inchesRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">дюймы</text></svg>\') no-repeat;';
     let ageRU =' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">годы</text></svg>\') no-repeat;';
     let countRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">кол-во</text></svg>\') no-repeat;';
 
@@ -496,7 +496,6 @@ document.addEventListener("DOMContentLoaded", function () {
     translate();
     changeMetricSystem(metric);
     calc();
-    // onMouseOverMetricMeters();
     onMouseOverPartnerLogo();
 });
 
