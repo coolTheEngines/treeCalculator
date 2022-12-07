@@ -421,6 +421,11 @@ function translate() {
         document.getElementById('metersLabelId').innerHTML = "meters";
         document.getElementById('feetLabelId').innerHTML = "feet";
 
+        document.getElementById('heightLabelId').innerHTML = "Height";
+        document.getElementById('diameterLabelId').innerHTML = "Diameter";
+        document.getElementById('ageLabelId').innerHTML = "Age";
+        document.getElementById('numberLabelId').innerHTML = "Number";
+
         document.getElementById('CO2absCalcNameId').innerHTML = "CO&#8322; absorption calculator";
 
         document.getElementById('resultsNameId').innerHTML = "Results:";
@@ -441,6 +446,11 @@ function translate() {
         document.getElementById('treeParametersLabelId').innerHTML = "Параметры дерева";
         document.getElementById('metersLabelId').innerHTML = "метры";
         document.getElementById('feetLabelId').innerHTML = "футы";
+
+        document.getElementById('heightLabelId').innerHTML = "Высота";
+        document.getElementById('diameterLabelId').innerHTML = "Диаметр";
+        document.getElementById('ageLabelId').innerHTML = "Возраст";
+        document.getElementById('numberLabelId').innerHTML = "Количество";
 
         document.getElementById('CO2absCalcNameId').innerHTML = "Калькулятор поглощения CO&#8322;";
 
