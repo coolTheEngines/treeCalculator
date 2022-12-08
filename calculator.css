@@ -63,25 +63,12 @@ body {
 
 
 .background {
-  background-image: radial-gradient(96.3% 96.3% at 50% 80.74%, rgba(255, 255, 255, 0.92) 0%, #FFFFFF 77.53%), url('video.png');
-  /*background-size: cover;*/
+  background: radial-gradient(96.3% 96.3% at 50% 80.74%, rgba(255, 255, 255, 0.92) 0%, #FFFFFF 77.53%), rgb(2,0,36);
 }
 
 .global-height {
   height: 100% !important;
-  /*height: -moz-available;          !* WebKit-based browsers will ignore this. *!*/
-  /*height: -webkit-fill-available;  !* Mozilla-based browsers will ignore this. *!*/
-  /*height: fill-available;*/
 }
-
-/*.custom-range::-webkit-slider-thumb {*/
-/*  width: 13px;*/
-/*  height: 13px;*/
-/*  background-color: #36BF7D;*/
-/*  border-radius: 3px;*/
-/*  -webkit-appearance: none;*/
-/*  appearance: none*/
-/*}*/
 
 .left-group-padding-md {
   padding-right: 70px;
