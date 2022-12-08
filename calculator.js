@@ -457,7 +457,7 @@ function translate() {
         document.getElementById('resultsNameId').innerHTML = "Результаты:";
         document.getElementById('greenWeightNameId').innerHTML = "Зеленая масса:";
         document.getElementById('dryWeightNameId').innerHTML = "Сухая масса:";
-        document.getElementById('weightOfCarbonNameId').innerHTML = "Масса углекислого газа:";
+        document.getElementById('weightOfCarbonNameId').innerHTML = "Масса углерода:";
         document.getElementById('weightOfCarbonDioxNameId').innerHTML = "Масса выделенного углекислого газа:";
         document.getElementById('weightOfCO2NameId').innerHTML = "Масса CO&#8322; секвестрированного за год:";
     }
