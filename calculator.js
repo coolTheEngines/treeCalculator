@@ -450,16 +450,16 @@ function translate() {
         document.getElementById('heightLabelId').innerHTML = "Высота";
         document.getElementById('diameterLabelId').innerHTML = "Диаметр";
         document.getElementById('ageLabelId').innerHTML = "Возраст";
-        document.getElementById('numberLabelId').innerHTML = "Количество";
+        document.getElementById('numberLabelId').innerHTML = "Штук";
 
         document.getElementById('CO2absCalcNameId').innerHTML = "Калькулятор поглощения CO&#8322;";
 
         document.getElementById('resultsNameId').innerHTML = "Результаты:";
-        document.getElementById('greenWeightNameId').innerHTML = "Зеленый вес:";
-        document.getElementById('dryWeightNameId').innerHTML = "Сухой вес:";
-        document.getElementById('weightOfCarbonNameId').innerHTML = "Вес углекислого газа:";
-        document.getElementById('weightOfCarbonDioxNameId').innerHTML = "Вес выделенного углекислого газа:";
-        document.getElementById('weightOfCO2NameId').innerHTML = "Вес CO&#8322; секвестрированного за год:";
+        document.getElementById('greenWeightNameId').innerHTML = "Зеленая масса:";
+        document.getElementById('dryWeightNameId').innerHTML = "Сухая масса:";
+        document.getElementById('weightOfCarbonNameId').innerHTML = "Масса углекислого газа:";
+        document.getElementById('weightOfCarbonDioxNameId').innerHTML = "Масса выделенного углекислого газа:";
+        document.getElementById('weightOfCO2NameId').innerHTML = "Масса CO&#8322; секвестрированного за год:";
     }
     changeMetricNaming();
     inputBackgroundUpdate();

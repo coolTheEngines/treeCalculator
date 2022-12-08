@@ -56,9 +56,9 @@ function translate() {
         document.getElementById('calculateName').innerHTML = "Calculate";
 
         document.getElementById('unipccText').innerHTML = "UN IPCC CO&#8322; absorption calculator";
-        document.getElementById('unipccTextDescription1').innerHTML = "We at Trees for the\n" +
-            "                            <a href=\"https://trees.org/\" class=\"right-words-link\">Future</a>\n" +
-            "                            estimate that our\n" +
+        document.getElementById('unipccTextDescription1').innerHTML =
+            "                            <a href=\"https://trees.org/\" class=\"right-words-link\">Trees for the Future</a>\n" +
+            "                            estimates that\n" +
             "                            <a href=\"https://www.fao.org/forestry/agroforestry/80338/en/#:~:text=Definition,spatial%20arrangement%20or%20temporal%20sequence\" class=\"right-words-link\">agroforestry trees</a>, planted in tropical\n" +
             "                            climates, will sequester atmospheric carbon dioxide at an average of 50 pounds of carbon\n" +
             "                            dioxide per tree per year.";
@@ -76,8 +76,8 @@ function translate() {
 
         document.getElementById('unipccText').innerHTML = "Калькулятор поглощения CO&#8322; МГЭИК ООН";
 
-        document.getElementById('unipccTextDescription1').innerHTML = "По оценкам компании \"Деревья для \n" +
-            "                            <a href=\"https://trees.org/\" class=\"right-words-link\">Будущего</a>\", высаженные в тропическом климате\n" +
+        document.getElementById('unipccTextDescription1').innerHTML = "По оценкам компании \"" +
+            "<a href=\"https://trees.org/\" class=\"right-words-link\">Деревья дляБудущего</a>\", высаженные в тропическом климате\n" +
             "                            <a href=\"https://www.fao.org/forestry/agroforestry/80338/en/#:~:text=Definition,spatial%20arrangement%20or%20temporal%20sequence\" class=\"right-words-link\">агролесные деревья</a>\n" +
             "                             будут поглащать в среднем 50 фунтов атмосферного углекислого газа на дерево в год.";
 
