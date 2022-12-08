@@ -77,7 +77,7 @@ function translate() {
         document.getElementById('unipccText').innerHTML = "Калькулятор поглощения CO&#8322; МГЭИК ООН";
 
         document.getElementById('unipccTextDescription1').innerHTML = "По оценкам компании \"" +
-            "<a href=\"https://trees.org/\" class=\"right-words-link\">Деревья дляБудущего</a>\", высаженные в тропическом климате\n" +
+            "<a href=\"https://trees.org/\" class=\"right-words-link\">Деревья для Будущего</a>\", высаженные в тропическом климате\n" +
             "                            <a href=\"https://www.fao.org/forestry/agroforestry/80338/en/#:~:text=Definition,spatial%20arrangement%20or%20temporal%20sequence\" class=\"right-words-link\">агролесные деревья</a>\n" +
             "                             будут поглащать в среднем 50 фунтов атмосферного углекислого газа на дерево в год.";
 

@@ -450,7 +450,7 @@ function translate() {
         document.getElementById('heightLabelId').innerHTML = "Высота";
         document.getElementById('diameterLabelId').innerHTML = "Диаметр";
         document.getElementById('ageLabelId').innerHTML = "Возраст";
-        document.getElementById('numberLabelId').innerHTML = "Штук";
+        document.getElementById('numberLabelId').innerHTML = "Количество";
 
         document.getElementById('CO2absCalcNameId').innerHTML = "Калькулятор поглощения CO&#8322;";
 
@@ -476,7 +476,7 @@ function inputBackgroundUpdate() {
     let feetRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">футы</text></svg>\') no-repeat;';
     let inchesRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">дюймы</text></svg>\') no-repeat;';
     let ageRU =' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">годы</text></svg>\') no-repeat;';
-    let countRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">кол-во</text></svg>\') no-repeat;';
+    let countRU = ' url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  height="30"><text x="60" y="21" style="font: normal 16px Arial; opacity: 0.22; float: right;">штук</text></svg>\') no-repeat;';
 
     if (metric === metricEU && language === languageEN) {
         document.getElementById('height').setAttribute( 'style', 'background: ' + metersEN + ' ) !important' );
