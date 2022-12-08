@@ -78,6 +78,10 @@
     padding-top: 50px;
 }
 
+.pointer:hover {
+    cursor: pointer;
+}
+
 @media (min-width: 992px) {
     .links-background-padding-md {
         position: fixed;

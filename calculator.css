@@ -63,7 +63,7 @@ body {
 
 
 .background {
-  background: radial-gradient(96.3% 96.3% at 50% 80.74%, rgba(255, 255, 255, 0.92) 0%, #FFFFFF 77.53%), rgb(2,0,36);
+  /*background: radial-gradient(96.3% 96.3% at 50% 80.74%, rgba(255, 255, 255, 0.92) 0%, #FFFFFF 77.53%), rgb(2,0,36);*/
 }
 
 .global-height {
