@@ -19,7 +19,7 @@ function WidthChange(mq) {
 }
 
 function openCalcPage() {
-    window.location =  "http://" + window.location.host + '/treeCalculator/index2.html';
+    window.location =  "http://" + window.location.host + '/treeCalculator/calculator.html';
 }
 
 const languageEN = "EN";
