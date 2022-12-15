@@ -46,6 +46,7 @@
 .calculator-button-line {
     border: 1px solid rgba(255, 255, 255, 0.5); width: 88px;
     height: 0px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .right-words-header {
